@@ -1,3 +1,3 @@
 <!--pages/home/home.wxml-->
 <text>pages/home/home.wxml</text>
-<navigator url="./service/pages/chexian/chexian"><text>chexian</text></navigator>
+<navigator url="./child/insurance/insurance"><text>chexian</text></navigator>
