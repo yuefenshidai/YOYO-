@@ -1,2 +1,7 @@
+<<<<<<< .mine
 develp sdffsfsdfsdff333333331111,½ô¼±ĞŞ¸´0.1µÄbug
 
+=======
+develpÓÅÏÈ
+
+>>>>>>> .theirs
