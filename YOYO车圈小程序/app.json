@@ -1,7 +1,10 @@
 {
     "pages": [
         "pages/home/home",
-        "pages/mall/mall"
+        "pages/mall/mall",
+        "pages/news/news",
+        "pages/order/order",
+        "pages/user/user"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -20,20 +23,19 @@
             "root": "pages/home/child/packageA",
             "pages": [
                 "claim/claim",
-				"carbeauty/carbeauty",
+                "carbeauty/carbeauty",
                 "evaluation/evaluation",
                 "expedited/expedited",
                 "illegal/illegal",
                 "rescue/rescue"
             ]
+        },
+        {
+            "root": "pages/mall/child",
+            "pages": [
+                "itemBuy/itemBuy",
+                "mallItem/mallItem"
+            ]
         }
-		,
-		{
-			"root": "pages/mall/child",
-			"pages": [
-				"itemBuy/itemBuy",
-				"mallItem/mallItem"
-			]
-		}
     ]
 }
