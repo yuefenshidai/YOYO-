@@ -1,0 +1,326 @@
+<div class="modal-body modalpadd">
+	<div class="row">
+			<!--选择结果   -->
+		<div class="col-sm-9 col-padd">
+			<div class="ibox float-e-margins col-marg">
+				<div class="ibox-content">
+					<p id="pubwin_users_chooseend"></p>
+				</div>
+			</div> 
+		</div>
+		<div class="col-sm-3 col-padd">
+	<button type="button" id="modify_users_checkbtn2" class="btn btn-primary">确定</button>	
+	<button type="button" id="modify_users_empbtn" class="btn btn-info" >清空</button>		
+	<button type="button" id="modify_users_checkbtn1" class="btn btn-white" >关闭</button>
+	
+		
+		</div>
+		<!--选择结果 end  -->
+		<!--组织结构树  -->
+		<div class="col-sm-5 col-padd">
+			<div class="ibox float-e-margins col-marg">
+				<div class="ibox-content">
+					<div id="pubwin_users_treeviews" style="height: 380px;overflow: auto;"></div>
+				</div> 
+			</div> 
+		</div>
+		<!--组织结构树 end  -->
+		<!--组织结构详细表   -->
+		<div class="col-sm-7 col-padd">
+			<div class="ibox float-e-margins col-marg">
+				<div class="ibox-content">
+				 <div id="toolbar">
+                	 	
+                	 	<div class="col-md-4" >
+	                      <input type="text" placeholder="输入姓名" class="form-control" id="keys111111">
+	                  	</div>
+			            <button id="button11111" class="btn btn-primary  buttom-left" ><i class="fa fa-check"></i>查询</button>
+                     </div>
+					<table id="pubwin_users_table" class="table-hover"></table>
+				</div>
+			</div> 
+		</div>
+		<!--组织结构详细表 end  -->
+
+	</div>
+</div>
+   
+<script type="text/javascript">
+
+$(function(){
+	
+	var users_checked_data; //选择的数据 
+	var users_opts;  //传入的参
+	var pubwin_users_organizeid=""; //树节点ID 
+	
+	//如果有传入的参数
+	if("undefined" != (typeof window.pubwin.users.opts)){
+		users_opts = window.pubwin.users.opts;
+		//参数title
+		var title = "人员选择";
+		if(users_opts.title != "" && users_opts.title != null){
+			title = users_opts.title;
+		}
+		$('#pubwin_users_title').html(title);
+		//参数param
+		var keys = "";
+	 	var isadviser=0;
+	 	/*var isQG=0; */
+		if(users_opts.param != 0 && users_opts.param != ""){
+			keys = users_opts.param;
+		}
+		/* if(keys=='adviser'){
+			 isadviser=1;
+		}
+		if(keys=='QG'){
+			 isadviser=1;
+			 isQG=1;
+		}
+		if(isadviser==1){//adviser
+			 keys='ZWHFJK';
+		}
+		if(isQG==1){
+			keys='QGZX';
+		} */
+		$.ajax({
+			url: 'commonAction/getBaCode.json',
+			dataType: 'json',
+			type: 'post',
+			success: function(result){
+				for(var i=0;i<result.length;i++){
+					result[i]["text"]=result[i]["NAME"];
+					result[i]["parents"]=result[i]["PARENTS"];
+					result[i]["id"]=result[i]["CODEID"];
+				}
+				var personnel_json = transData(result, "NODEID", "parents", "children");
+				//console.info(personnel_json);
+				// alert(JSON.stringify(personnel_json));
+				/* $('#pubwin_users_treeviews').treeview({
+					levels: 99, 
+				    data: personnel_json
+				});  */
+				 personnel_json[0]["state"]={  
+                        "opened": true//,          //展示第一个层级下面的node  
+                       // "disabled": true         //该根节点不可点击  
+                     };
+				 $('#pubwin_users_treeviews').jstree({
+			          'core': {
+			              'data': personnel_json
+			          }
+			      }); 
+			}
+		});
+		
+		//参数result
+		if( !isEmptyObject(users_opts.result) ){
+			users_checked_data = users_opts.result;
+		}else{
+			users_checked_data = [];
+		}
+		if(!isEmptyObject(users_checked_data)){
+			var endstr = "选择的人员：";
+			for(var i=0; i < users_checked_data.length; i++){
+				endstr = endstr + users_checked_data[i].circlename+"-"+users_checked_data[i].advisername+",";
+			}
+			$("#pubwin_users_chooseend").html(endstr);
+		}
+		refersh({});//选择框弹出之后，加载所有人员
+	}	
+
+	 $('#pubwin_users_treeviews').on("changed.jstree", function (e, data) {
+	      pubwin_users_organizeid =data.node.id;
+	      //console.info("------------------------------------->");
+	      //console.info(pubwin_users_organizeid);
+			var data1={};
+			if(pubwin_users_organizeid!=""){
+				data1["circle"]=pubwin_users_organizeid;
+			}
+			refersh(data1);
+	    });
+	 //查询按钮
+	 $("#button11111").click(function(){
+		 var data1={};
+		 if(pubwin_users_organizeid!=""){
+				data1["circle"]=pubwin_users_organizeid;
+		 }
+		 if($("#keys111111").val()!=""){
+			data1["key"]=$("#keys111111").val();
+		 }
+		 refersh(data1);
+	 });
+	//组织机构树   行点击事件 
+	/* $('#pubwin_users_treeviews').on('nodeSelected', function(event, data) {
+		pubwin_users_organizeid = data.organizeid;
+		var data1={};
+		if(pubwin_users_organizeid!=""){
+			data1["organizeid"]=pubwin_users_organizeid;
+		}
+		refersh(data1);
+	});  */
+	
+
+	//组织机构详细表   格式 
+	function fmt(value,row,index){ 
+		if(!isEmptyObject(users_checked_data) ){
+			for(var i=0; i < users_checked_data.length; i++){
+						if(users_checked_data[i].id == row.id){
+							return true;
+						}
+			}
+		}
+	};
+
+  var foruser=[{
+        title: '',
+        field: 'state',
+        checkbox: true,
+        formatter: fmt
+    },{
+        title: '姓名',
+        field: 'advisername',
+        width:'45px'
+    },{
+        title: '界别',
+        field: 'circlename',
+        width:'60px'
+    },{
+        title: '联系电话',
+        field: 'cellphone1',
+        width:'60px'
+    }
+    ];
+  var urll='Advisermanage/getAdiserForMeetPop.json';
+
+  //表格查询参数
+  function tabQueryParams(params){
+	  params["circle"]=pubwin_users_organizeid;
+	  params["key"]=$("#keys111111").val();
+	  return params;
+  }
+  
+	//组织机构详细表   表参数设置 
+	$('#pubwin_users_table').bootstrapTable({
+		//url:urll,
+	    clickToSelect:true,   //点击行选择 
+	    pagination:'true',    //分页工具栏 
+	    height:'300',
+	    pageSize:10,
+	    queryParams:tabQueryParams,
+	    sidePagination:'server',   //定义分页在服务端  
+	   //pageList:[10,20,50,'All'],   //选择分页条数 
+	    onAll: onAll,    //事件 
+	    columns: foruser
+	});
+	//组织机构详细表     表刷新 
+	function refersh(data){
+		$('#pubwin_users_table').bootstrapTable('refresh',{
+			url:urll,
+			query:data
+		}); 
+	}
+	
+	//组织机构详细表   onAll事件 
+	function onAll(name, args){
+		if(name.indexOf("check.bs") == 0){
+			users_checked_data.push(args[0]);
+		}
+		if(name.indexOf("check-all") == 0){
+			if(users_checked_data.length != 0){
+				for(var i=0; i< users_checked_data.length; i++){
+					for(var j=0; j< args[0].length; j++){
+							if(users_checked_data[i].id == args[0][j].id){
+								args[0].splice(j,1);//删除该项
+							}
+					}
+				}
+			}
+			users_checked_data = users_checked_data.concat(args[0]);//连接users_checked_data和args[0]两个数组
+		}
+		if(name.indexOf("uncheck.bs") == 0){
+			for(var i=0; i< users_checked_data.length; i++){
+					if(users_checked_data[i].id == args[0].id){
+						users_checked_data.splice(i,1);
+					}
+			}
+		}
+		if(name.indexOf("uncheck-all") == 0){
+			args[0].sort(sort_down);	
+			for(var j=0; j< args[0].length; j++){	
+				for(var i=0; i< users_checked_data.length; i++){
+						if(args[0][j].id == users_checked_data[i].id){
+							users_checked_data.splice(i,1);
+							i--;
+						}
+				
+				}
+			}
+		}
+		users_checked_data.sort(sort_down);
+		var endstr = "选择的人员：";
+		for(var i=0; i < users_checked_data.length; i++){
+				endstr = endstr + users_checked_data[i].circlename+"-"+users_checked_data[i].advisername+",  ";
+		}
+		$("#pubwin_users_chooseend").html(endstr);	
+	}
+	
+	
+	//窗口   关闭按钮 
+	$("#modify_users_checkbtn1").click(function(){
+		$("#pubwinusers2_Modal").modal('hide'); 
+	});
+	//窗口   清空按钮 
+	$("#modify_users_empbtn").click(function(){
+		users_checked_data = [];
+		refersh({});
+	});
+	//窗口   确定按钮 
+	$("#modify_users_checkbtn2").click(function(){
+		if(users_checked_data.length != 0){  
+			window.pubwin.users.returnfunc(users_checked_data);
+			$("#pubwinusers2_Modal").modal('hide');
+		}else{
+			toastr.warning("提示","请选中一行数据！");
+		}
+		$("#pubwin_users_chooseend").html("");
+	});
+	
+	/***********************************************************************
+	*公用方法transData、isEmptyObject
+	*/
+	//组织机构树    解析json var personnel_json = transData(result, "organizeid", "parents", "children");
+	function transData(jsons, idStr, pidStr, chindrenStr){  
+		// console.log(jsons);
+	    var r = [], hash = {};
+	    var id = idStr, pid = pidStr, children = chindrenStr;
+	    var i = 0, j = 0, len = jsons.length;  
+	    for(; i < len; i++){  
+	        hash[jsons[i][id]] = jsons[i];  
+	    }  
+	    for(; j < len; j++){  
+	        var aVal = jsons[j], hashVP = hash[aVal[pid]];  
+	        if(hashVP){  
+	            !hashVP[children] && (hashVP[children] = []);  
+	            hashVP[children].push(aVal);  
+	        }else{  
+	            r.push(aVal);  
+	        }  
+	    }  
+	   // console.log(r);
+	    return r;  
+	} 
+	//判断obj是否为空， 为空（true） 
+	function isEmptyObject(e){  
+	    var t;  
+	    for (t in e)  
+	        return !1;  
+	    return !0  
+	}
+	//sort排序func  根据userid大小排序
+	function sort_down(x, y) {
+        return (x.sortno > y.sortno) ? 1 : -1
+    }
+	/*
+	*公用方法end 
+	*/
+});
+</script>
