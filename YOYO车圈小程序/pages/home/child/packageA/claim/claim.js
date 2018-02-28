@@ -1,4 +1,4 @@
-// pages/home/service/pages/chexian/chexian.js
+// pages/home/child/claim/claim.js
 Page({
 
   /**
