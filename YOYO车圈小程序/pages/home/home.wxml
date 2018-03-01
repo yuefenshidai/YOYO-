@@ -125,7 +125,7 @@
 	</view>
 	<view class='homeMallList'>
 		<view class='homeMallList_inner flex'>
-			<block wx:for="{{homeMallList}}">
+			<block wx:for="{{homeMallList}}" wx:key="{{item.productid}}">
 				<view class='mallList_item'>
 					<view class='itemImg'>
 						<image src="{{img_url + item.productid}}"></image>
@@ -148,7 +148,7 @@
 		<view class='rightText'>最新资讯</view>
 	</view>
 	<view class='homeNewList'>
-		<block wx:for="{{homeNewsList}}">
+		<block wx:for="{{homeNewsList}}" wx:key="{{item.tNewsid}}">
 			<view class='homenewsList_item flex'>
 				<view class='leftImg'>
 					<image src="{{fileNameImg_url + item.thumbnail}}"></image>
@@ -156,7 +156,8 @@
 				<view class='rightContent'>
 					<text class='newsItem_title'>{{item.title}}</text>
 					<text class='newsItem_view'>浏览{{item.browsenum}}·评论{{item.commentsnum}}</text>
-					<text class='newsItem_long'>6天前</text>
+					 <wxs src="./home.wxs" module="home"></wxs> 
+					<text class='newsItem_long'>{{home.calcDays(item.relesetime)}}</text>
 				</view>
 			</view>
 		</block>
