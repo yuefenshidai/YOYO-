@@ -34,10 +34,12 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+	url_root: "http://www.happyinstallment.com/yfsd/",
+	img_url: "http://www.happyinstallment.com/yfsd/commonAction/getimg?fileName=",
+	mallImg_url:"http://www.happyinstallment.com/yfsd/commonAction/getimgByDataid?dataid="
   },
   data: {
-	  url_root: "http://www.happyinstallment.com/yfsd/",
-	  img_url: "http://www.happyinstallment.com/yfsd/commonAction/getimg?fileName="
+	 
   }
 })

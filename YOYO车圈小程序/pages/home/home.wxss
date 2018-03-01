@@ -1,3 +1,6 @@
+page{
+	background-color: #f7f7f7;
+}
 .slide-image{
 	width:100%;
 	height: 100%;
@@ -22,10 +25,16 @@ swiper{
 .menuView_item image {
 	width: 80rpx;
 	height: 80rpx;
-	border-radius: 50%;
 }
 .menuView_item text{
 	font-size: 30rpx;
+}
+.menuView_List_s image{
+	width:57rpx;
+	height: 50rpx;
+}
+.menuView_List_s image {
+	font-size: 28rpx;
 }
 .middleLogo{
 	width: 710rpx;
@@ -74,4 +83,100 @@ swiper{
 	color: #aaa;
 	font-size: 24rpx;
 	line-height: 36rpx;
+}
+.home_mall_wrap{
+	margin-bottom: 20rpx;
+}
+.homeMallList{
+	padding: 30rpx;
+	background-color: #fff;
+	padding-bottom: 0;
+}
+.homeMallList_inner{
+	flex-wrap:wrap;
+}
+.homeMallList_inner .mallList_item{
+	width: 330rpx;
+	box-shadow: 0rpx 3rpx 3rpx #eee;
+	margin-right: 30rpx;
+	margin-bottom: 20rpx;
+	padding: 30rpx 0;
+}
+.homeMallList_inner .mallList_item:nth-of-type(2n){
+	margin-right: 0;
+}
+.mallList_item .itemImg{
+	height: 297rpx;
+	width: 330rpx;
+	text-align: center;
+}
+.mallList_item .itemImg image{
+	max-height:100%;
+	max-width: 100%;
+}
+.mallList_item  .itemtitle{
+	text-align: center;
+	font-size: 26rpx;
+	line-height: 34rpx;
+	padding: 10rpx;
+	margin: 20rpx 0;
+	overflow: hidden;
+	height: 72rpx;
+	padding-bottom: 0;
+}
+.mallList_item .itemprice{
+	padding: 0 10rpx;
+	height: 27rpx;
+}
+.mallList_item .itemprice text{
+	font-size: 24rpx;
+}
+.mallList_item .itemprice .saleprice{
+	color: #ff846e;
+	font-size: 30rpx;
+	line-height: 34rpx;
+}
+.mallList_item .itemprice .unit{
+	margin-right: 38rpx;
+}
+.mallList_item .itemprice .oldprice{
+	color: #8d8d8d;
+	text-decoration:line-through;
+}
+.homenewsList_item{
+	padding: 20rpx 30rpx;
+	min-height: 150rpx;
+	margin-bottom: 20rpx;
+	background-color: #fff;
+}
+.homenewsList_item .leftImg{
+	width:200rpx;
+	margin-right:20rpx;
+}
+.homenewsList_item .leftImg image {
+	width:200rpx;
+	height: 150rpx;
+}
+.homenewsList_item .rightContent{
+	position: relative;
+	padding: 0;
+}
+.homenewsList_item .rightContent .newsItem_title{
+	font-size: 27rpx;
+	font-weight: 500;
+	display: block;
+}
+.homenewsList_item .rightContent .newsItem_view{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	font-size: 20rpx;
+	color: #bbb;
+}
+.homenewsList_item .rightContent .newsItem_long{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-size: 20rpx;
+	color: #bbb;
 }

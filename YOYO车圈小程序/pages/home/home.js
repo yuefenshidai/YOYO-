@@ -5,14 +5,19 @@ Page({
 	 */
 	data: {
 		bannerImsg: ['./img/banner1.jpg'],
-		Sbanner: ['买车险,送积分', '推荐朋友购买车险可获100积分']
+		Sbanner: ['买车险,送积分', '推荐朋友购买车险可获100积分'],
+		homeMallList:[],
+		homeNewsList:[],
+		img_url: getApp().globalData.mallImg_url,
+		fileNameImg_url: getApp().globalData.img_url
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
+		this.getMallInfo()
+		this.getNewList()
 	},
 
 	/**
@@ -62,5 +67,44 @@ Page({
 	 */
 	onShareAppMessage: function () {
 
+	},
+
+	/**
+	 * 请求首页商城数据
+	 */
+	getMallInfo(){
+		let url = getApp().globalData.url_root 
+		wx.request({
+			url: url + 'TProductSkuService/getAllInteProd', 
+			data: {
+				offset: 0,
+				limit: 6,
+			},
+			success:  res=> {
+				this.setData({
+					homeMallList:res.data.rows
+				})
+			}
+		})
+	},
+
+		/**
+	 * 请求首页商城数据
+	 */
+	getNewList(){
+		let url = getApp().globalData.url_root
+		wx.request({
+			url: url + 'TnewsService/getNewsByType',
+			data: {
+				offset: 0,
+				limit: 3,
+				type: 1
+			},
+			success: res => {
+				this.setData({
+					homeNewsList: res.data.rows
+				})
+			}
+		})
 	}
 })
