@@ -4,13 +4,18 @@
         "pages/mall/mall",
         "pages/news/news",
         "pages/order/order",
-        "pages/user/user"
+        "pages/user/user",
+        "pages/common/login/login"
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black"
+        "navigationBarBackgroundColor": "#ff7c5e",
+        "navigationBarTitleText": "YOYO车圈",
+        "navigationBarTextStyle": "white",
+		"backgroundColor":"#f7f7f7",
+		"backgroundTextStyle":"dark",
+		"enablePullDownRefresh":true
+
     },
     "subPackages": [
         {
@@ -37,5 +42,36 @@
                 "mallItem/mallItem"
             ]
         }
-    ]
+    ],
+	"tabBar":{
+		"color":"#333",
+		"selectedColor":"#ff7c5e",
+		"backgroundColor":"#fff",
+		"list":[{
+			"pagePath": "pages/home/home",
+			"text": "首页",
+			"iconPath": "./assets/img/tabbar/shouye-nav.png",
+			"selectedIconPath": "./assets/img/tabbar/shouye-nav-S.png"
+		},{
+			"pagePath": "pages/mall/mall",
+			"text": "商城",
+			"iconPath": "./assets/img/tabbar/shangcheng-nav.png",
+			"selectedIconPath": "./assets/img/tabbar/shangcheng-nav-S.png"
+		},{
+			"pagePath": "pages/order/order",
+			"text": "订单",
+			"iconPath": "./assets/img/tabbar/dingdan-nav.png",
+			"selectedIconPath": "./assets/img/tabbar/dingdan-nav-S.png"
+		},{
+			"pagePath": "pages/news/news",
+			"text": "圈子",
+			"iconPath": "./assets/img/tabbar/chquan-nav.png",
+			"selectedIconPath": "./assets/img/tabbar/chquan-nav-S.png"
+		},{
+			"pagePath": "pages/user/user",
+			"text": "我的",
+			"iconPath": "./assets/img/tabbar/wode-nav.png",
+			"selectedIconPath": "./assets/img/tabbar/wode-nav-S.png"
+		}]
+	}
 }

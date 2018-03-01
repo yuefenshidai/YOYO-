@@ -1,1 +1,77 @@
-/* pages/home/home.wxss */
+.slide-image{
+	width:100%;
+	height: 100%;
+}
+swiper{
+	width:100%;
+	height: 500rpx;
+}
+.menuView_List{
+	display: flex;
+	width:100%;
+	height: auto;
+	padding: 30rpx 0rpx;
+	overflow: hidden;
+	text-align: center;
+	background-color: #fff;
+	margin-bottom: 20rpx;
+}
+.menuView_item{
+	flex:1;
+}
+.menuView_item image {
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+}
+.menuView_item text{
+	font-size: 30rpx;
+}
+.middleLogo{
+	width: 710rpx;
+	height: 240rpx;
+	padding: 0rpx 20rpx;
+	margin-bottom: 20rpx;
+}
+.middleLogo image {
+	height: 100%;
+	width: 710rpx;
+	border-radius: 10rpx;
+}
+.sSwiper{
+	width:708rpx;
+	height: 61rpx;
+	background-color: #fff;
+	border-bottom: 1rpx solid #f8f9fc;
+	padding-left: 42rpx;
+}
+.sSwiper image{
+	width:26rpx;
+	height: 24rpx;
+	margin-right: 20rpx;
+	margin-top: 18.5rpx;
+	flex:0 0 26rpx;
+}
+.sSwiper view{
+	width: 600rpx;
+	flex:0 0 600rpx;
+	height: 100%;
+}
+.sSwiper swiper{
+	height: 100%;
+}
+.sSwiper text{
+	width:600rpx;
+	overflow: hidden;
+}
+.homepage_footInfo{
+	width: 100%;
+	text-align: center;
+	padding: 30rpx 0;
+	padding-top: 0;
+}
+.homepage_footInfo text{
+	color: #aaa;
+	font-size: 24rpx;
+	line-height: 36rpx;
+}
