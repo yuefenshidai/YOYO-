@@ -22,4 +22,7 @@ var calcday = function (d) {
 		}
 		return timeAgo
 }
+
+
+
 module.exports.calcDays = calcday

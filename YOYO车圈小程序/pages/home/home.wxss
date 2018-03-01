@@ -155,7 +155,7 @@ swiper{
 }
 .homenewsList_item .leftImg image {
 	width:200rpx;
-	height: 150rpx;
+	height: 150rpx; 
 }
 .homenewsList_item .rightContent{
 	position: relative;
@@ -169,14 +169,14 @@ swiper{
 .homenewsList_item .rightContent .newsItem_view{
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 10rpx;
 	font-size: 20rpx;
 	color: #bbb;
 }
 .homenewsList_item .rightContent .newsItem_long{
 	position: absolute;
 	right: 0;
-	bottom: 0;
+	bottom: 10rpx;
 	font-size: 20rpx;
 	color: #bbb;
 }
