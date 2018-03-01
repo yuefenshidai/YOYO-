@@ -1,0 +1,119 @@
+<swiper  autoplay="{{true}}">
+  <block wx:for="{{bannerImsg}}" >
+    <swiper-item> 
+       <image src="{{item}}" wx:key="{{item.thumbnail}}" class="slide-image" /> 
+    </swiper-item>
+  </block>
+</swiper>
+<block>
+	<view  class='sSwiper flex'>
+		<image src="http://www.happyinstallment.com/app/image/homepage1/hot.png"></image>
+		<view>
+			<swiper vertical="{{true}}" autoplay="{{true}}">
+				<block wx:for="{{Sbanner}}" >
+					<swiper-item> 
+						<text>{{item}}</text>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+	</view>
+</block>
+<block>
+	<view class='menuView_List'>
+		<view class='menuView_item'>
+			<navigator url="./child/insurance/insurance" 		hover-class="navigator-hover">
+			<view>
+				<image	src="http://www.happyinstallment.com/app/image/homepage1/maichexian.png"></image>
+			</view>
+			<view>
+				<text>找救援</text>
+			</view>
+			</navigator>
+		</view>
+				<view class='menuView_item'>
+			<navigator url="./child/insurance/insurance" 		hover-class="navigator-hover">
+			<view>
+				<image	src="http://www.happyinstallment.com/app/image/homepage1/maichexian.png"></image>
+			</view>
+			<view>
+				<text>找救援</text>
+			</view>
+			</navigator>
+		</view>
+				<view class='menuView_item'>
+			<navigator url="./child/insurance/insurance" 		hover-class="navigator-hover">
+			<view>
+				<image	src="http://www.happyinstallment.com/app/image/homepage1/maichexian.png"></image>
+			</view>
+			<view>
+				<text>找救援</text>
+			</view>
+			</navigator>
+		</view>
+				<view class='menuView_item'>
+			<navigator url="./child/insurance/insurance" 		hover-class="navigator-hover">
+			<view>
+				<image	src="http://www.happyinstallment.com/app/image/homepage1/maichexian.png"></image>
+			</view>
+			<view>
+				<text>找救援</text>
+			</view>
+			</navigator>
+		</view>
+	</view>
+</block> 
+<block>
+	<view class='middleLogo'>
+		<image src="http://www.happyinstallment.com/yfsd/commonAction/getimg?fileName=upload/携手.jpg"></image>
+	</view>
+</block>
+<block>
+	<view class='menuView_List'>
+		<view class='menuView_item'>
+			<navigator url="./child/insurance/insurance" 		hover-class="navigator-hover">
+			<view>
+				<image	src="http://www.happyinstallment.com/app/image/homepage1/maichexian.png"></image>
+			</view>
+			<view>
+				<text>找救援</text>
+			</view>
+			</navigator>
+		</view>
+				<view class='menuView_item'>
+			<navigator url="./child/insurance/insurance" 		hover-class="navigator-hover">
+			<view>
+				<image	src="http://www.happyinstallment.com/app/image/homepage1/maichexian.png"></image>
+			</view>
+			<view>
+				<text>找救援</text>
+			</view>
+			</navigator>
+		</view>
+				<view class='menuView_item'>
+			<navigator url="./child/insurance/insurance" 		hover-class="navigator-hover">
+			<view>
+				<image	src="http://www.happyinstallment.com/app/image/homepage1/maichexian.png"></image>
+			</view>
+			<view>
+				<text>找救援</text>
+			</view>
+			</navigator>
+		</view>
+				<view class='menuView_item'>
+			<navigator url="./child/insurance/insurance" 		hover-class="navigator-hover">
+			<view>
+				<image	src="http://www.happyinstallment.com/app/image/homepage1/maichexian.png"></image>
+			</view>
+			<view>
+				<text>找救援</text>
+			</view>
+			</navigator>
+		</view>
+	</view>
+</block> 
+<block>
+	<view class='homepage_footInfo'>
+		<text>中国保监会互联网保险资格备案\n中国保险行业协会互联网保险信息披露备案\n蜀ICP备17028545号-1</text>
+	</view>
+</block>
