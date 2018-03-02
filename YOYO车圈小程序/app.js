@@ -35,9 +35,9 @@ App({
   },
   globalData: {
     userInfo: null,
-	url_root: "http://www.happyinstallment.com/yfsd/",
-	img_url: "http://www.happyinstallment.com/yfsd/commonAction/getimg?fileName=",
-	mallImg_url:"http://www.happyinstallment.com/yfsd/commonAction/getimgByDataid?dataid="
+	url_root: "https://www.happyinstallment.com/yfsd/",
+	img_url: "https://www.happyinstallment.com/yfsd/commonAction/getimg?fileName=",
+	mallImg_url:"https://www.happyinstallment.com/yfsd/commonAction/getimgByDataid?dataid="
   },
   data: {
 	 

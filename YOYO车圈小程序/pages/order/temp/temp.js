@@ -1,4 +1,4 @@
-// pages/news/child/component/listTemp/list.js
+// pages/order/temp/temp.js
 Component({
   /**
    * 组件的属性列表

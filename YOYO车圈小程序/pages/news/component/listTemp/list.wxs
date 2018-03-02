@@ -1,0 +1,28 @@
+var calcday = function (d) {
+	var now = getDate().getTime()
+	var creat = getDate(d).getTime()
+	var timeAgo = ''
+	var ste = now - creat
+	var _days = parseInt(ste / (1000 * 60 * 60 * 24));
+	var _hours = parseInt((ste % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var _minutes = parseInt((ste % (1000 * 60 * 60)) / (1000 * 60));
+	var _seconds = (ste % (1000 * 60)) / 1000;
+	if (_days < 1) {
+		if (_hours < 1) {
+			if (_minutes < 1) {
+				timeAgo = '刚刚'
+			} else {
+				timeAgo = _minutes + '分钟前'
+			}
+		} else {
+			timeAgo = _hours + '小时前'
+		}
+	} else {
+		timeAgo = _days + '天前'
+	}
+	return timeAgo
+}
+
+
+
+module.exports.calcDays = calcday

@@ -1,1 +1,7 @@
-{}
+{
+	"navigationBarTitleText": "圈子",
+	"enablePullDownRefresh":false,
+	"usingComponents": {
+		"loadList": "./component/listTemp/list"
+	}
+}
