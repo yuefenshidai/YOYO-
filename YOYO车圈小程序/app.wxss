@@ -1,4 +1,7 @@
 /**app.wxss**/
+page{
+	overflow-x: hidden;
+}
 text{
 	font-size: 26rpx;
 }
@@ -7,4 +10,21 @@ text{
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+}
+.titleContainer{
+	width:720rpx;
+	height: 31rpx;
+	padding-left: 30rpx;
+	background-color: #fff;
+}
+.titleContainer .leftIcon{
+	width: 4rpx;
+	height: 100%;
+	background-color: #f49931;
+	margin-right: 10rpx;
+}
+.titleContainer .rightText{
+	font-size: 25rpx;
+	line-height: 31rpx;
+	font-weight: 500;
 }

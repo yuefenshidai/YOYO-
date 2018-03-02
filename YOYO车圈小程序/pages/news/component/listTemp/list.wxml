@@ -1,0 +1,18 @@
+<!--pages/news/child/component/listTemp/list.wxml-->
+<view class='list_wrap'>
+		<view class='homeNewList'>
+			<block wx:for="{{listView}}" wx:key="{{item.tNewsid}}">
+				<view class='homenewsList_item' bindtap='tapEvent' data-id="{{item.tNewsid}}">
+					<view class='leftImg'>
+						<image src="{{fileNameImg_url + item.thumbnail}}"></image>
+					</view>
+					<view class='rightContent'>
+						<text class='newsItem_title'>{{item.title}}</text>
+						<text class='newsItem_view'>浏览{{item.browsenum}}·评论{{item.commentsnum}}</text>
+						<wxs src="./list.wxs" module="list"></wxs> 
+						<text class='newsItem_long'>{{list.calcDays(item.relesetime)}}</text>
+					</view>
+				</view>
+			</block>
+	</view>
+</view>

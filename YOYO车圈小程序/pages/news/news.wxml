@@ -1,2 +1,23 @@
-<!--pages/news/news.wxml-->
-<text>pages/news/news.wxml</text>
+<view class="tab_wrap flex">
+	<view class="tab_wrap_item {{item.active?'tab_wrap_item_active':''}}" wx:for="{{tabText}}" bindtap='tabChange' wx:key="{{item.name}}" data-index="{{index}}"><text>{{item.name}}</text></view>
+</view>
+<view class='news_list_wrap'>
+	<view>
+		<view hidden='{{avtiveIndex!=0}}'>
+			<loadList listView="{{listVIew.rem}}" wx:if="{{listVIew.rem.length>0}}"></loadList>
+		</view>	
+		<view hidden='{{avtiveIndex!=1}}'>
+			<loadList listView="{{listVIew.yongc}}" wx:if="{{listVIew.yongc.length>0}}"></loadList>
+		</view>
+		<view hidden='{{avtiveIndex!=2}}'>
+			<loadList listView="{{listVIew.quw}}" wx:if="{{listVIew.quw.length>0}}"></loadList>
+		</view>
+		<view hidden='{{avtiveIndex!=3}}'>
+			<loadList listView="{{listVIew.chex}}" wx:if="{{listVIew.chex.length>0}}"></loadList>
+		</view>
+		<view hidden='{{avtiveIndex!=4}}'>
+			<loadList listView="{{listVIew.kej}}" wx:if="{{listVIew.kej.length>0}}"></loadList>
+		</view>
+	</view>
+</view>
+

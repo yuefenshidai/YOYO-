@@ -1,2 +1,10 @@
-<!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<swiper>
+    <swiper-item>
+		<import src="./temp/temp.wxml"/>
+		<template is="odd" data="{{text: '1'}}" />
+    </swiper-item>
+	<swiper-item>
+		<import src="./temp/temp.wxml"/>
+		<template is="even" data="{{text: '2'}}"/>
+    </swiper-item>
+</swiper>
