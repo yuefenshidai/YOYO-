@@ -29,9 +29,15 @@
 			"current": 0,
 			"list": [
 				{
+<<<<<<< Updated upstream
 					"id": -1,
 					"name": "news",
 					"pathName": "pages/news/news",
+=======
+					"id": 0,
+					"name": "商城页面开发",
+					"pathName": "pages/mall/mall",
+>>>>>>> Stashed changes
 					"query": ""
 				}
 			]
