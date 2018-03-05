@@ -31,9 +31,15 @@
 			"current": 0,
 			"list": [
 				{
+<<<<<<< .mine
 					"id": 0,
 					"name": "商城页面开发",
 					"pathName": "pages/mall/mall",
+=======
+					"id": 0,
+					"name": "user",
+					"pathName": "pages/user/user",
+>>>>>>> .theirs
 					"query": ""
 				}
 			]

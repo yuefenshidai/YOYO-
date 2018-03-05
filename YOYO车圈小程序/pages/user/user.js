@@ -1,4 +1,7 @@
 // pages/user/user.js
+// let check = require("../../assets/js/chekLogin.js")
+import check from "../../assets/js/chekLogin.js"
+let App = getApp()
 Page({
 
   /**
@@ -12,21 +15,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-	
+	  check.check()
+	  App.listenEvt('hold',(VAL)=>{
+		  console.log(123)
+	  })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+	  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+	 
   },
 
   /**

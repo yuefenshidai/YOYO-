@@ -27,7 +27,10 @@ Component({
 		  console.log(123)
 	  },
 	  tapEvent(e){
-		  console.log(e.currentTarget.dataset.id)
+		  let newsid = e.currentTarget.dataset.id
+		  wx.navigateTo({
+			  url: './child/detail/detail?id=' + newsid,
+		  })
 	  }
   },
 

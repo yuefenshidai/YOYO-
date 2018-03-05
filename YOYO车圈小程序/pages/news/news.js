@@ -157,6 +157,7 @@ Page({
 			  icon: 'none',
 			  duration: 2000
 		  })
+		  wx.hideNavigationBarLoading()
 	  }
   },
 
