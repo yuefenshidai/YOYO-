@@ -29,9 +29,9 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "news",
-					"pathName": "pages/news/news",
+					"id": 0,
+					"name": "user",
+					"pathName": "pages/user/user",
 					"query": ""
 				}
 			]

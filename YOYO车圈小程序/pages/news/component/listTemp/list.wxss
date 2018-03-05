@@ -23,9 +23,10 @@
 .homenewsList_item .rightContent{
 	position: relative;
 	padding: 0;
+	width:470rpx;
 }
 .homenewsList_item .rightContent .newsItem_title{
-	font-size: 27rpx;
+	font-size: 28rpx;
 	font-weight: 500;
 	display: block;
 }
@@ -33,13 +34,13 @@
 	position: absolute;
 	left: 0;
 	bottom: 10rpx;
-	font-size: 20rpx;
+	font-size: 22rpx;
 	color: #bbb;
 }
 .homenewsList_item .rightContent .newsItem_long{
 	position: absolute;
 	right: 0;
 	bottom: 10rpx;
-	font-size: 20rpx;
+	font-size: 22rpx;
 	color: #bbb;
 }

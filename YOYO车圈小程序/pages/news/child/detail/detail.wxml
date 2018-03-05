@@ -1,0 +1,10 @@
+<!--pages/news/child/detail/detail.wxml-->
+<view class='newsContentTitle'>
+	<text>{{Detail.title}}</text>
+</view>
+<view class='newsContentTime'>
+	<text>{{Detail.relesetime}}</text>
+</view>
+<view class='newsContentInner'>
+	<rich-text nodes="{{Detail.content}}"  class='richText'></rich-text>
+</view>

@@ -41,5 +41,31 @@ App({
   },
   data: {
 	 
+  },
+//   监听事件列表
+  EvtPassData:[],
+  addEvt:function(option){
+	let EvtPassData = this.EvtPassData
+	EvtPassData.forEach((item,i)=> {
+		if (item.evt == option.evt){
+			if (option.data) {
+				item.fn(option.data)
+			}else{
+				item.fn()
+			}
+		}
+	})
+  },
+  listenEvt:function(evt,fn){
+	  if (evt && fn){
+		  let newEvtItem = {
+			  evt: evt,
+			  fn: fn
+		  }
+		  this.EvtPassData.push(newEvtItem)
+	  }else{
+		  console.error('listenEvt必须有2个参数,第一个为事件名称，第二个为回调函数')
+	  }
+		
   }
 })

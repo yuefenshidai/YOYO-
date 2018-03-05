@@ -1,0 +1,4 @@
+
+<view bindtap="tapll" style='height:200rpx;background-color:pink;'>
+	<text >login</text>
+</view>

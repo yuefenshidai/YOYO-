@@ -1,0 +1,37 @@
+/* pages/news/child/detail/detail.wxss */
+.newsContentTitle{
+	text-align: left;
+	padding: 10rpx 30rpx;
+	padding-bottom: 0;
+}
+.newsContentTitle text{
+	font-size: 40rpx;
+	line-height: 60rpx;
+	color: #000;
+	font-weight: bold;
+	text-align: left;
+}
+.newsContentTime{
+	padding-left: 30rpx;
+}
+.newsContentTime text{
+	font-size: 24rpx;
+	color: #c4c4c4;
+	line-height: 24rpx;
+}
+.newsContentInner{
+	padding: 0 30rpx;
+	padding-bottom: 30rpx;
+}
+.newsContentInner .richText{
+	font-size: 30rpx;
+	line-height: 45rpx;
+	max-width: 690rpx!important;
+	overflow: hidden;
+	display: block;
+}
+.newsContentInner  .richText  image {
+	max-width: 690rpx!important;
+	height: auto!important;
+	text-align: center;
+}

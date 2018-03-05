@@ -1,1 +1,19 @@
 /* pages/user/user.wxss */
+.head_wrap{
+    margin-bottom: 20rpx;
+	position: relative;
+}
+.head_wrap_back{
+	 width: 100%; 
+	 height: 710rpx; 
+	 z-index: -1;
+}
+.head_wrap_out{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height:710rpx;
+	padding-top: 75rpx;  
+	background-color: rgba(0,0,0,0.2);
+}

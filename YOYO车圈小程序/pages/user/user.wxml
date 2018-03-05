@@ -1,2 +1,17 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<block>
+	<view class='head_wrap'>
+		<image class='head_wrap_back' src="./image/bg-avatar.png"></image>
+		<view class='head_wrap_out'>
+			<view class='avatarAndTitle'>
+				<image></image>
+				<text></text>
+			</view>
+		</view>
+	</view>
+	<view class='bottom_meun'></view>
+</block>
+<block>
+	<import src="../common/notLogin/notLogin"/>
+	<template is="item"/>
+</block>
