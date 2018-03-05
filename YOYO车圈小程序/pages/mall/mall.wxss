@@ -112,7 +112,7 @@ view {
 }
 
 .shoping_goods .goods_contianer .goods_item {
-  height: 427rpx;
+  /* height: 427rpx; */
   width: 320rpx;
   float: left;
   box-shadow: 0rem 0.015rem 0.15rem #eee;
@@ -135,7 +135,7 @@ view {
 }
 
 .shoping_goods .goods_contianer .goods_item .goods_title {
-  height: 72rpx;
+  height: 80rpx;
   width: 100%;
   font-size: 26rpx;
   padding: 10rpx 10rpx 0;

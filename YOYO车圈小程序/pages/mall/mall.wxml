@@ -40,34 +40,19 @@
       <text>积分商城</text>
     </view>
     <view class='goods_contianer'>
-      <view class='goods_item item_odd' bindtap='checkMe' data-shuzi='1545656'>
+      <view class='goods_item item_odd' bindtap='checkMe' data-pro_id='{{ item.productid }}' bindtap='showGoodsInfo' wx:for='{{ goods_arr }}'>
         <view class='goods_img'>
-          <image src='http://www.happyinstallment.com/yfsd/commonAction/getimgByDataid?dataid=1710207c856978b56311e7990900155d4c0321'></image>
+          <image src='{{ mall_img_url+item.productid }}'></image>
         </view>
         <view class='goods_title'>
-          华为手机sdfsdfdfgdsgfddddddddfgfg
+           {{ item.productname }} 
         </view>
         <view class='goods_price'>
           <view class='now_price'>
-            <text style='color : #ff846e; font-size: 30rpx;'>3333</text>
+            <text style='color : #ff846e; font-size: 30rpx;'>{{ item.saleintegral }}</text>
             <text>积分</text>
           </view>
-          <view class='before_price'>￥2165</view>
-        </view>
-      </view>
-      <view class='goods_item' bindtap='checkMe' data-shuzi='1545656'>
-        <view class='goods_img'>
-          <image src='http://www.happyinstallment.com/yfsd/commonAction/getimgByDataid?dataid=1710207c856978b56311e7990900155d4c0321'></image>
-        </view>
-        <view class='goods_title'>
-          华为手机sdfsdfdfgdsgfddddddddfgfg
-        </view>
-        <view class='goods_price'>
-          <view class='now_price'>
-            <text style='color : #ff846e; font-size: 30rpx;'>3333</text>
-            <text>积分</text>
-          </view>
-          <view class='before_price'>￥2165</view>
+          <view class='before_price'>￥{{ item.saleprice }}</view>
         </view>
       </view>
     </view>
