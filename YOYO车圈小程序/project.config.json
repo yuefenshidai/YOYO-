@@ -11,7 +11,10 @@
 	"libVersion": "1.9.91",
 	"appid": "wxa705706572dd34c6",
 	"projectname": "YOYO%E8%BD%A6%E5%9C%88%E5%B0%8F%E7%A8%8B%E5%BA%8F",
-	"isGameTourist": false,
+	"svr": "",
+	"client": "",
+	"qcloudRoot": "",
+	"miniprogramRoot": "",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -22,22 +25,15 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
 				{
-<<<<<<< Updated upstream
-					"id": -1,
-					"name": "news",
-					"pathName": "pages/news/news",
-=======
 					"id": 0,
 					"name": "商城页面开发",
 					"pathName": "pages/mall/mall",
->>>>>>> Stashed changes
 					"query": ""
 				}
 			]
