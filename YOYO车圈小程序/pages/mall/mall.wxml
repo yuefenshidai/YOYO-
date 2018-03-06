@@ -35,7 +35,7 @@
   </view>
   <view class='shoping_goods'>
     <view class='goods_head'>
-      <text>╩Щ╥жилЁг</text>
+      <text>О©╫О©╫О©╫О©╫О©╫лЁО©╫</text>
     </view>
     <view class='goods_contianer'>
       <view class='goods_item item_odd' bindtap='checkMe' data-pro_id='{{ item.productid }}' bindtap='showGoodsInfo' wx:for='{{ goods_arr }}'>
@@ -48,9 +48,9 @@
         <view class='goods_price'>
           <view class='now_price'>
             <text style='color : #ff846e; font-size: 30rpx;'>{{ item.saleintegral }}</text>
-            <text>╩Щ╥ж</text>
+            <text>О©╫О©╫О©╫О©╫</text>
           </view>
-          <view class='before_price'>ё╓{{ item.saleprice }}</view>
+          <view class='before_price'>О©╫О©╫{{ item.saleprice }}</view>
         </view>
       </view>
     </view>
@@ -111,6 +111,3 @@
 
 
 
-
-
->>>>>>> .theirs
