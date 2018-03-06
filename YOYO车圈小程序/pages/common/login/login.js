@@ -1,4 +1,6 @@
 import { getVcode, checkVcodeTime } from '../../../assets/js/getVcode.js'
+import ajax from '../../../assets/js/ajax.js'
+
 Page({
 
   /**
@@ -116,35 +118,31 @@ Page({
 	  this.setData({
 		  submitLoading: true
 	  })
-	  wx.request({
-		  url: App.globalData.url_root+'BMemberService/login',
-		  data:{
-			  userCode: this.data.inputData.mobile,
-			  password: this.data.inputData.password,
-			  dxyzm: this.data.inputData.vcode
-		  },
-		  success:res=> {
+	  ajax.GET('BMemberService/login',{
+		  userCode: this.data.inputData.mobile,
+		  password: this.data.inputData.password,
+		  dxyzm: this.data.inputData.vcode
+	  }).then((res)=>{
+		  let rep = JSON.stringify(res.data)
+		  wx.setStorageSync('yfsdmember', rep)
+		  App.sendEvt({
+			  evt: 'logined'
+		  })
+		  this.setData({
+			  submitLoading: false
+		  })
+		 wx.navigateBack()
+		  }, (res) => {
 			  this.setData({
 				  submitLoading: false
 			  })
-			  if (res.statusCode==200){
-				  let rep = JSON.stringify(res.data)
-				 wx.setStorageSync('yfsdmember', rep)
-				  App.sendEvt({
-					  evt: 'logined'
-				  })
-				  wx.navigateBack()
-			  }else{
-				  wx.showModal({
-					  title: '提示',
-					  content: res.data.trim(),
-					  showCancel:false,
-					  confirmColor:" #ff7c5e"
-				  })
-			  }
-		  } 
-	  })
-	//   wx.navigateBack()
+			  wx.showModal({
+				  title: '提示',
+				  content: res.data.trim(),
+				  showCancel: false,
+				  confirmColor: " #ff7c5e"
+			  })
+		  })
   },
 
 	// 验证码与手机密码登录模式切换

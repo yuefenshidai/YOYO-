@@ -1,7 +1,6 @@
 const check = ()=>{
-	let userid = wx.getStorageSync('userid')
-
-	if (!userid) {
+	let userInfo =wx.getStorageSync('yfsdmember')||false
+	if (!userInfo) {
 		wx.navigateTo({
 			url: '../common/login/login'
 		})

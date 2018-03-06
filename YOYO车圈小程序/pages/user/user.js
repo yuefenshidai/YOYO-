@@ -1,6 +1,7 @@
 // pages/user/user.js
 // let check = require("../../assets/js/chekLogin.js")
 import check from "../../assets/js/chekLogin.js"
+import ajax from "../../assets/js/ajax.js"
 let App = getApp()
 Page({
 
@@ -8,19 +9,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-		isLogin:false
+		isLogin:false,
+		getedInfo:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-	  let userid = wx.getStorageSync('userid')
-	  if (userid) this.isLogin = true
+	  let userInfo = wx.getStorageSync('yfsdmember')||false
+	  
+	  if (userInfo) {
+		  this.setData({ isLogin:true  })
+		  this.getUserInfo()
+	  }
 	  check.check()
 	  App.listenEvt('logined',(VAL)=>{
-		  let userInfo = JSON.parse(wx.getStorageSync('yfsdmember'))
-		  console.log(userInfo)
+		  this.getUserInfo()
 	  })
   },
 
@@ -76,9 +81,13 @@ Page({
 	  onTabItemTap点击TabBar
   */
   getUserInfo(e) {
+	  let url_root = App.globalData.url_root
+	  let userInfo = JSON.parse(wx.getStorageSync('yfsdmember'))
 	  wx.showNavigationBarLoading()
-	//   wx.request({
-	// 	  url: '',
-	//   })
+	  ajax.GET('BMemberService/getByid').then(res=>{
+		  this.setData({ isLogin: true, getedInfo:res.data})
+		  wx.setStorageSync('yfsdmemberbyid', JSON.stringify(res.data))
+		  wx.hideNavigationBarLoading()
+	  })
   }
 })
