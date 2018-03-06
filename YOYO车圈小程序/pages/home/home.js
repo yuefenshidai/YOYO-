@@ -113,5 +113,11 @@ Page({
 	 */
 	calcDays(d){
 		console.log(d)
+	},
+	/*
+		onTabItemTap点击TabBar
+	*/
+	onTabItemTap(e){
+		console.log(e)
 	}
 })

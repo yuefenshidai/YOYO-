@@ -8,16 +8,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+		isLogin:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+	  let userid = wx.getStorageSync('userid')
+	  if (userid) this.isLogin = true
 	  check.check()
-	  App.listenEvt('hold',(VAL)=>{
-		  console.log(123)
+	  App.listenEvt('logined',(VAL)=>{
+		  let userInfo = JSON.parse(wx.getStorageSync('yfsdmember'))
+		  console.log(userInfo)
 	  })
   },
 
@@ -68,5 +71,14 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  /*
+	  onTabItemTap点击TabBar
+  */
+  getUserInfo(e) {
+	  wx.showNavigationBarLoading()
+	//   wx.request({
+	// 	  url: '',
+	//   })
   }
 })

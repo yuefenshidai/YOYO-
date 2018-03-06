@@ -1,4 +1,9 @@
 <!--pages/common/notLogin/notLogin.wxml-->
 <template name="item">
-  <text>地方附近多空双方随即发生的开发的建设</text>
+<view style='text-align:center;font-size:26rpx;color:#333;margin-top:100rpx;'>
+	<navigator url="../common/login/login">
+		<text>您还没有登陆,点击登陆后查看</text>
+	</navigator>
+</view>
+  
 </template>

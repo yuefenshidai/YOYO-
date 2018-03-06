@@ -1,6 +1,4 @@
 <!--pages/mall/mall.wxml-->
-<!-- <text>1111</text> -->
-
 <view class='container'>
   <view class='img'>
     <image src='./img/top-banner.png'></image>
@@ -37,7 +35,7 @@
   </view>
   <view class='shoping_goods'>
     <view class='goods_head'>
-      <text>绉垎鍟嗗煄</text>
+      <text>积分商城</text>
     </view>
     <view class='goods_contianer'>
       <view class='goods_item item_odd' bindtap='checkMe' data-pro_id='{{ item.productid }}' bindtap='showGoodsInfo' wx:for='{{ goods_arr }}'>
@@ -50,11 +48,69 @@
         <view class='goods_price'>
           <view class='now_price'>
             <text style='color : #ff846e; font-size: 30rpx;'>{{ item.saleintegral }}</text>
-            <text>绉垎</text>
+            <text>积分</text>
           </view>
-          <view class='before_price'>锟{ item.saleprice }}</view>
+          <view class='before_price'>￥{{ item.saleprice }}</view>
         </view>
       </view>
     </view>
   </view>
 </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs

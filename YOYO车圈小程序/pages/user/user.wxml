@@ -1,5 +1,5 @@
 <!--pages/user/user.wxml-->
-<block>
+<block wx:if="{{isLogin}}">
 	<view class='head_wrap'>
 		<image class='head_wrap_back' src="./image/bg-avatar.png"></image>
 		<view class='head_wrap_out'>
@@ -11,7 +11,7 @@
 	</view>
 	<view class='bottom_meun'></view>
 </block>
-<block>
+<block wx:if="{{!isLogin}}">
 	<import src="../common/notLogin/notLogin"/>
 	<template is="item"/>
 </block>

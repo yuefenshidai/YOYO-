@@ -44,7 +44,7 @@ App({
   },
 //   监听事件列表
   EvtPassData:[],
-  addEvt:function(option){
+  sendEvt:function(option){
 	let EvtPassData = this.EvtPassData
 	EvtPassData.forEach((item,i)=> {
 		if (item.evt == option.evt){
