@@ -1,4 +1,35 @@
-
-<view bindtap="tapll" style='height:200rpx;background-color:pink;'>
-	<text >login</text>
+<view class="login_wrap">
+	<image src='../img/LOGO.png'></image>
+	<view>
+		<text>YOYO车圈</text>
+	</view>
+</view>
+<view class='login-form'>
+	<view class='login-form-item mobileNum'>
+		<label class='flex'>
+			<image src='../img/logo-mobile.png'></image>
+			<input placeholder="请输入手机号码" auto-focus type='number' maxlength='11' bindinput="inputEvt" data-type="mobile"/>
+		</label>
+	</view>
+	<view class='login-form-item' hidden="{{loginModel !='手机验证码登陆'}}">
+		<label class='flex'>
+			<image src='../img/logo-password.png'></image>
+			<input placeholder="请输入密码"  type='password' bindinput="inputEvt" data-type="password"/>
+		</label>
+	</view>
+	<view class='login-form-item vcode' hidden="{{loginModel=='手机验证码登陆'}}" >
+		<label class='flex'>
+			<image src='../img/logo-vcode.png'></image>
+			<input placeholder="请输入验证码"  type='number' maxlength='6' bindinput="inputEvt" data-type="vcode"/>
+			<text class='getvcode' bindtap='getVcoded'>{{timelate}}</text>
+		</label>
+	</view>
+</view>
+<view class='submit'>
+	<button  loading="{{submitLoading}}"
+    bindtap="submitLogin"> 登录</button>
+</view>
+<view class='tabChage'  bindtap='changeModel'>
+	<text>忘记密码或没有账户请使用</text>
+	<text class='change'>{{loginModel}}</text>
 </view>

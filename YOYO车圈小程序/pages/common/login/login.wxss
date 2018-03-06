@@ -1,1 +1,92 @@
 /* pages/common/login/login.wxss */
+page {
+	background-color: #fff;
+}
+.login_wrap{
+	text-align: center;
+    margin-bottom: 160rpx;
+	margin-top: 160rpx;
+    z-index: 2;
+}
+.login_wrap image {
+	width: 126rpx;
+	height: 126rpx;
+}
+.login_wrap text{
+	font-size: 30rpx;
+	color: #f8ba59;
+	margin-top: 45rpx;
+	line-height: 30rpx;
+}
+.login-form{
+	text-align: center;
+	padding: 0 40rpx;
+}
+.login-form-item{
+	border-bottom: 2rpx solid #666666;
+    margin-bottom: 80rpx;
+}
+.login-form-item image {
+	margin-top: 2rpx;
+	width: 34rpx;
+	height: 40rpx;
+	margin-right: 20rpx;
+	vertical-align: middle;
+}
+.login-form-item input {
+	border: none;
+    outline: none;
+    background-color: #fff;
+    height:45rpx;
+    width: 570rpx;
+    text-align: center;
+    color: #666;
+    font-size: 30rpx;
+	line-height: 30rpx;
+	padding: 0 20rpx;
+	vertical-align: middle;
+}
+.mobileNum image{
+	width: 25rpx;
+	height: 42rpx;
+}
+.vcode input {
+	width: 370rpx;
+}
+.vcode .input-placeholder{
+	text-align: right;
+}
+.getvcode{
+	width: 180rpx;
+	font-size: 30rpx;
+	display: inline-block;
+    height: 45rpx;
+    text-align: right;
+    color: #ff7c5e;
+	line-height: 45rpx;
+	margin-top: 4rpx;
+}
+.submit{
+	 width: 640rpx;
+    text-align: center;
+    color: #fff;
+    font-size: .32rem;
+    margin: .90rpx auto 40rpx auto;
+    display: block;
+}
+button {
+	line-height: 80rpx;
+	font-size: 32rpx;
+	background-color: #ff7c5e;
+	color: #fff;
+}
+.tabChage{
+	text-align: center;
+}
+.tabChage text{
+	font-size: 24rpx;
+}
+.tabChage .change{
+	font-size: 27rpx;
+	color: #ff7c5e;
+}
