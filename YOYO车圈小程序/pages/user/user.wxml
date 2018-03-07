@@ -1,15 +1,80 @@
 <!--pages/user/user.wxml-->
 <block wx:if="{{isLogin}}">
-	<view class='head_wrap'>
+	<view class='head_wrap' wx:if="{{getedInfo}}">
 		<image class='head_wrap_back' src="./image/bg-avatar.png"></image>
 		<view class='head_wrap_out'>
 			<view class='avatarAndTitle'>
-				<image></image>
-				<text></text>
+				<view class='avartar_wrap'>
+					<image src="{{imgurl + getedInfo.bMember.headpic}}"></image>
+				</view>
+				<view class='nickNname_wrap'><text>你好，{{getedInfo.bMember.nickname }}</text></view>
+			</view>
+			<view class='Info_layout_wrap'>
+				<view class='Info_layout_wrap_inner flex'>
+					<view class='myintegral'>
+						<view class='myintegral_title'>
+							<text>我的积分</text>
+						</view>
+						<view class='integral'>
+							{{getedInfo.totalIntegral}}
+						</view>
+						<view class='integral_description'>
+							<text>可用积分</text>
+							<text class='useintegral'>{{getedInfo.integral}}</text>
+						</view>
+					</view>
+					<view class='myintegral'>
+						<view class='myintegral_title'>
+							<text>我的卡券</text>
+						</view>
+						<view class='integral'>
+							{{getedInfo.couponNum}}
+						</view>
+						<view class='integral_description'>
+							<text>YOYO车主优惠</text>
+						</view>
+					</view>
+				</view>
+				<view class='gradient'></view>
+			</view>
+		<view class='barMenuList flex'>
+			<view class='barMenuList_item'>
+				<view class='img_wrap'>
+					<image src='./image/myorder.png'></image>
+				</view>	
+				<view class='txt_wrap'>我的订单</view>
+			</view>
+			<view class='barMenuList_item'>
+				<view class='img_wrap'>
+					<image src='./image/mychit.png'></image>
+				</view>
+				<view class='txt_wrap'>我的保单</view>
+			</view>
+			<view class='barMenuList_item'>
+				<view class='img_wrap'>
+					<image src='./image/myclaim.png'></image>
+				</view>
+				<view class='txt_wrap'>我的理赔</view>
+			</view>
+			<view class='barMenuList_item'>
+				<view class='img_wrap'>
+					<image src='./image/myintegral.png'></image>
+				</view>
+				<view class='txt_wrap'>赚积分</view>
 			</view>
 		</view>
+		</view>
 	</view>
-	<view class='bottom_meun'></view>
+	<view class='bottom_meun'>
+		<view class='bottom_meun_main'>
+			<navigator wx:for="{{listBar}}" wx:key="{{item.title}}" class="{{index==4?'bottom_meun_main_item_UP':''}}">
+				<view class='bottom_meun_main_item flex' >
+					<image src="{{item.icon}}"></image>
+					<text>{{item.title}}</text>
+				</view>
+			</navigator>
+		</view>
+	</view>
 </block>
 <block wx:if="{{!isLogin}}">
 	<import src="../common/notLogin/notLogin"/>

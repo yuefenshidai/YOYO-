@@ -10,7 +10,15 @@ Page({
    */
   data: {
 		isLogin:false,
-		getedInfo:null
+		getedInfo:null,
+		imgurl: getApp().globalData.img_url,
+		listBar:[{title:'我的资料',icon:'./image/ziliao.png',link:''},
+			{ title: '我的收藏', icon: './image/shoucang.png', link: '' },
+			{ title: '我的评论', icon: './image/pinglun.png', link: '' },
+			{ title: '我的消息', icon: './image/message.png', link: '' },
+			{ title: '联系客服', icon: './image/kefu.png', link: '' },
+			{ title: '法律声明', icon: './image/falv.png', link: '' }
+		]
   },
 
   /**
@@ -18,7 +26,6 @@ Page({
    */
   onLoad: function (options) {
 	  let userInfo = wx.getStorageSync('yfsdmember')||false
-	  
 	  if (userInfo) {
 		  this.setData({ isLogin:true  })
 		  this.getUserInfo()

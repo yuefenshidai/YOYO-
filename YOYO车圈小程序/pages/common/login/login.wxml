@@ -8,7 +8,7 @@
 	<view class='login-form-item mobileNum'>
 		<label class='flex'>
 			<image src='../img/logo-mobile.png'></image>
-			<input placeholder="请输入手机号码" auto-focus type='number' maxlength='11' bindinput="inputEvt" data-type="mobile"/>
+			<input placeholder="请输入手机号码"  type='number' maxlength='11' bindinput="inputEvt" data-type="mobile"/>
 		</label>
 	</view>
 	<view class='login-form-item' hidden="{{loginModel !='手机验证码登陆'}}">
