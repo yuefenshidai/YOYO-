@@ -7,7 +7,7 @@
   </view>
   <view class='swipe_news'>
     <image src='./img/hot.png'></image>
-    <swiper indicator-dots="false" indicator-color="rgba(0 0 0 0)" autoplay="true" interval="2000" duration="500" vertical="true">
+    <swiper indicator-dots="{{ false }}" indicator-color="rgba(0 0 0 0)" autoplay="true" interval="2000" duration="500" vertical="true">
       <block wx:for="{{ new_info }}">
         <swiper-item>
           <text>{{ item }}</text>
@@ -40,7 +40,7 @@
       <text>积分商城</text>
     </view>
     <view class='goods_contianer'>
-      <view class='goods_item item_odd' bindtap='checkMe' data-pro_id='{{ item.productid }}' bindtap='showGoodsInfo' wx:for='{{ goods_arr }}'>
+      <view class='goods_item item_odd' data-pro_id='{{ item.productid }}' bindtap='goodDetail' wx:for='{{ goods_arr }}'>
         <view class='goods_img'>
           <image src='{{ mall_img_url+item.productid }}'></image>
         </view>

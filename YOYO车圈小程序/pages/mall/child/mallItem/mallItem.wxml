@@ -1,3 +1,87 @@
 <!--pages/mall/child/mallItem/mallItem.wxml-->
-<text>pages/mall/child/mallItem/mallItem.wxml</text>
-<text>商城产品详情</text>
+<view class='mail_detail_container'>
+  <view class='good_top'>
+    <view class='con_img'>
+      <image src='http://www.happyinstallment.com/yfsd/commonAction/getimgByDataid?dataid=1710207c856978b56311e7990900155d4c0321'></image>
+    </view>
+    <view class='con_text'>
+      华为 HUAWEI P10 黑色 全网通 4GB+64GB 移动联通电信4G手机 双卡双待
+    </view>
+    <view class='con_price'>
+      <view class='now_price'>
+        <text style='color : rgb(255, 147, 122); font-size : 40rpx;'>45565</text>
+        <text>积分</text>
+      </view>
+      <view class='before_price'>
+        <text style='text-decoration:line-through;'>￥15656</text>
+      </view>
+    </view>
+  </view>
+  <view class='good_mid'>
+    <text>已选</text>
+    <text class='good_choiced'>玫瑰金4+64 1件</text>
+    <view class='show_more_bar'>
+      <image src='./img/selected.png'></image>
+    </view>
+  </view>
+  <view class='good_bottom'>
+
+  </view>
+
+  <!-- 显示更多选择 -->
+  <view class='show_more_container'>
+    <view class='s_m_top'>
+      属性
+      <view class='close_img'>
+        <image src='./img/close.png'></image>
+      </view>
+    </view>
+    <view class='s_m_mid'>
+      <view class='goods_group'>
+        <view class='good_item active'>
+          玫瑰金4+64
+        </view>
+        <view class='good_item'>
+          玫瑰金4+64
+        </view>
+        <view class='good_item'>
+          玫瑰金4+64
+        </view>
+        <view class='good_item'>
+          玫瑰金4+64
+        </view>
+        <view class='good_item'>
+          玫瑰金4+64
+        </view>
+        <view class='good_item'>
+          玫瑰金4+64
+        </view>
+      </view>
+    </view>
+    <view class='s_m_bottom'>
+      <text>数量</text>
+      <view class='choice_quantity'>
+        <view class='quantity_reduce'>
+          <image src='./img/minus.png'></image>
+        </view>
+        <view class='quantity'>
+          <input type='text' value='0'></input>
+        </view>
+        <view class='quantity_add'>
+          <image src='./img/plus.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 购买 -->
+  <view class='pay_for'>
+    <view class='need_pay'>
+      <text style='color : rgb(255, 124, 94); font-size : 40rpx;'>5454545</text>
+      <text style='color : rgb(51, 51, 51); font-size : 26rpx;'>积分</text>
+    </view>
+    <view class='sure'>立即购买</view>
+  </view>
+</view>
+
+<!-- 遮罩 -->
+<view id='shade'></view>

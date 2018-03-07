@@ -99,14 +99,6 @@ Page({
 
   },
 
-
-  /**
-   * 点击触发
-   */
-  checkMe: function (data) {
-    console.log('点击了' + JSON.stringify(data, null, 2));
-  },
-
   /**
    * 请求得到商品数据
    */
@@ -143,8 +135,13 @@ Page({
   },
 
 
-  //显示产品数据
-  showGoodsInfo() {
-    console.log(this.data.goods_arr);
+  //显示产品详情
+  goodDetail(e){
+    console.log(JSON.stringify(e,null,2));
+    let data = e.currentTarget.dataset;
+    let pro_id = data.pro_id;
+    // wx.navigateTo({
+    //   url: 'child/mallItem/mallItem?pro_id=' + pro_id,
+    // })
   }
 })
