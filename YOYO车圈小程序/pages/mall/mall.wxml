@@ -40,7 +40,7 @@
       <text>积分商城</text>
     </view>
     <view class='goods_contianer'>
-      <view class='goods_item item_odd' data-pro_id='{{ item.productid }}' bindtap='goodDetail' wx:for='{{ goods_arr }}'>
+      <view class='goods_item item_odd' data-pro_id='{{ item.productid }}' data-sku_id='{{ item.tSkuid }}' bindtap='goodDetail' wx:for='{{ goods_arr }}'>
         <view class='goods_img'>
           <image src='{{ mall_img_url+item.productid }}'></image>
         </view>

@@ -15,6 +15,10 @@ view {
   background: #f7f7f7;
 }
 
+.mail_detail_container.active{
+  overflow: hidden;
+}
+
 .mail_detail_container .good_top {
   height: auto;
   margin-bottom: 30rpx;
@@ -87,6 +91,11 @@ view {
   width: 23rpx;
 }
 
+.mail_detail_container .good_bottom{
+  padding: 0 30rpx;
+   padding-bottom: 100rpx; 
+}
+
 .mail_detail_container .pay_for {
   position: fixed;
   z-index: 10;
@@ -117,11 +126,16 @@ view {
 .mail_detail_container .show_more_container {
   position: fixed;
   z-index: 20;
-  bottom: 0;
+  bottom: -100%;
   width: 100%;
   padding: 30rpx;
   background: white;
   color: rgb(106, 106, 106);
+  transition: all 300ms linear;
+}
+
+.mail_detail_container .show_more_container.active {
+  bottom: 0;
 }
 
 .mail_detail_container .show_more_container .s_m_top {
@@ -225,7 +239,6 @@ view {
 }
 
 .mail_detail_container .show_more_container .s_m_bottom .choice_quantity view.quantity_reduce image {
-
 }
 
 .mail_detail_container .show_more_container .s_m_bottom .choice_quantity view.quantity input {
@@ -253,5 +266,12 @@ view {
   width: 100%;
   height: 100%;
   background: black;
+  display: none;
   opacity: 0.3;
+  transition: all 500ms linear;
 }
+
+#shade.active{
+  display: block;
+}
+

@@ -103,7 +103,6 @@ Page({
    * 请求得到商品数据
    */
   getGoodsData: function () {
-    // let url = getApp().globalData.url_root;
     let this_ = this;
     let arr = this.data.goods_arr;
     wx.request({
@@ -129,7 +128,6 @@ Page({
             goods_arr: arr
           });
         }
-
       }
     });
   },
@@ -137,11 +135,11 @@ Page({
 
   //显示产品详情
   goodDetail(e){
-    console.log(JSON.stringify(e,null,2));
     let data = e.currentTarget.dataset;
-    let pro_id = data.pro_id;
-    // wx.navigateTo({
-    //   url: 'child/mallItem/mallItem?pro_id=' + pro_id,
-    // })
+    let pro_id_ = data.pro_id;
+    let sku_id = data.sku_id;
+    wx.navigateTo({
+      url: 'child/mallItem/mallItem?pro_id=' + pro_id_ + '&sku_id=' + sku_id
+    })
   }
 })

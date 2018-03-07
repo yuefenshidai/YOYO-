@@ -1,73 +1,72 @@
 <!--pages/mall/child/mallItem/mallItem.wxml-->
-<view class='mail_detail_container'>
+<view class='mail_detail_container {{ open_choice_type_flag == true ? "active" : "" }}'>
   <view class='good_top'>
     <view class='con_img'>
-      <image src='http://www.happyinstallment.com/yfsd/commonAction/getimgByDataid?dataid=1710207c856978b56311e7990900155d4c0321'></image>
+      <image src='{{ pro_img }}'></image>
     </view>
     <view class='con_text'>
-      华为 HUAWEI P10 黑色 全网通 4GB+64GB 移动联通电信4G手机 双卡双待
+      {{ pro_title }}
     </view>
     <view class='con_price'>
       <view class='now_price'>
-        <text style='color : rgb(255, 147, 122); font-size : 40rpx;'>45565</text>
+        <text style='color : rgb(255, 147, 122); font-size : 40rpx;'>{{ price_now }}</text>
         <text>积分</text>
       </view>
       <view class='before_price'>
-        <text style='text-decoration:line-through;'>￥15656</text>
+        <text style='text-decoration:line-through;'>￥{{ price_before }}</text>
       </view>
     </view>
   </view>
   <view class='good_mid'>
     <text>已选</text>
-    <text class='good_choiced'>玫瑰金4+64 1件</text>
-    <view class='show_more_bar'>
+    <text class='good_choiced'>{{ show_good+' '+buy_num }}件</text>
+    <view class='show_more_bar'  bindtap='openTypeChoice' data-open_flag='open'>
       <image src='./img/selected.png'></image>
     </view>
   </view>
   <view class='good_bottom'>
-
+    <rich-text nodes='{{ goods_introduce }}'></rich-text>  
   </view>
 
   <!-- 显示更多选择 -->
-  <view class='show_more_container'>
+  <view class='show_more_container {{ open_choice_type_flag == true ? "active" : "" }}'>
     <view class='s_m_top'>
       属性
-      <view class='close_img'>
+      <view class='close_img' bindtap='openTypeChoice' data-open_flag='close'>
         <image src='./img/close.png'></image>
       </view>
     </view>
     <view class='s_m_mid'>
       <view class='goods_group'>
-        <view class='good_item active'>
-          玫瑰金4+64
-        </view>
-        <view class='good_item'>
-          玫瑰金4+64
-        </view>
-        <view class='good_item'>
-          玫瑰金4+64
-        </view>
-        <view class='good_item'>
-          玫瑰金4+64
-        </view>
-        <view class='good_item'>
-          玫瑰金4+64
-        </view>
-        <view class='good_item'>
-          玫瑰金4+64
+        <view class='good_item {{checkd_num == index ? "active" : "" }}' 
+              style='{{ item.pro_color == "" ? "display:none;" : "" }}'
+              wx:for='{{ goods_arr }}'
+              data-index='{{ index }}' 
+              data-goods_typd ='{{ item.pro_color+item.pro_edition }}'
+              data-pro_color_id='{{ item.pro_color_id }}' 
+              data-pro_edition_id='{{ item.pro_edition_id }}' 
+              data-saleprice='{{ item.saleprice }}' 
+              data-saleintegral='{{ item.saleintegral }}' 
+              data-stocknum='{{ stocknum }}'
+              bindtap='choiceType'>
+          {{ item.pro_color+item.pro_edition }}
         </view>
       </view>
     </view>
     <view class='s_m_bottom'>
       <text>数量</text>
       <view class='choice_quantity'>
-        <view class='quantity_reduce'>
+        <view class='quantity_reduce' 
+              bindtap='addOrReduceGoodsNum' 
+              data-buy_type='reduce'>
           <image src='./img/minus.png'></image>
         </view>
         <view class='quantity'>
-          <input type='text' value='0'></input>
+          <input type='number' value='{{ buy_num }}' bindinput='addOrReduceGoodsNum' data-buy_type='npt'></input>
         </view>
-        <view class='quantity_add'>
+        <view class='quantity_add' 
+              bindtap='addOrReduceGoodsNum' 
+              data-buy_type='add'>
           <image src='./img/plus.png'></image>
         </view>
       </view>
@@ -84,4 +83,4 @@
 </view>
 
 <!-- 遮罩 -->
-<view id='shade'></view>
+<view id='shade' class='{{ open_choice_type_flag == true ? "active" : ""  }}'></view>
