@@ -9,7 +9,14 @@ Page({
 		homeMallList:[],
 		homeNewsList:[],
 		img_url: getApp().globalData.mallImg_url,
-		fileNameImg_url: getApp().globalData.img_url
+		fileNameImg_url: getApp().globalData.img_url,
+		// menuView_List: [
+		// 	{ title: '买车险', icon: './img/maichexian.png', link: './child/insurance/insurance' }, { title: '查违章', icon: './img/chaweizhang.png', link: './child/packageA/illegal/illegal' }, { title: '办理赔', icon: './img/banlipei.png', link: './child/packageA/claim/claim' }, { title: '找救援', icon: './img/zhaojiuyuan.png', link: './child/packageA/rescue/rescue' }],
+		menuView_List: [
+			{ title: '买车险', icon: './img/maichexian.png', link: './child/insurance/insurance' }, { title: '查违章', icon: './img/chaweizhang.png', link: './child/packageA/illegal/illegal' }, { title: '车价评估', icon: './img/chejiapinggu.png', link: './child/packageA/evaluation/evaluation' }, { title: '维修保养', icon: './img/qicheweixiu.png', link: './child/packageA/carbeauty/carbeauty' }],
+		// menuView_List_s:[
+		// 	{ title: '汽车美容', icon: './img/xichemeirong.png', link: './child/packageA/carbeauty/carbeauty' }, { title: '维修保养', icon: './img/qicheweixiu.png', link: './child/packageA/carbeauty/carbeauty' }, { title: '车价评估', icon: './img/chejiapinggu.png', link: './child/packageA/evaluation/evaluation' }, { title: '年检代办', icon: './img/nianjiandaiban.png', link: './child/packageA/expedited/expedited' }
+		// ]
 	},
 
 	/**
@@ -108,16 +115,13 @@ Page({
 		})
 	},
 
-	/**
-	 * 请求首页商城数据
-	 */
-	calcDays(d){
-		console.log(d)
-	},
 	/*
-		onTabItemTap点击TabBar
+		跳转到新闻详情页面
 	*/
-	onTabItemTap(e){
-		console.log(e)
+	LinkToNewsDetail(e){
+		let id = e.currentTarget.dataset.id
+		wx.navigateTo({
+			url: '../news/child/detail/detail?id='+id,
+		})
 	}
 })
