@@ -25,6 +25,7 @@ swiper{
 .menuView_item image {
 	width: 80rpx;
 	height: 80rpx;
+	border-radius: 50%;
 }
 .menuView_item text{
 	font-size: 30rpx;

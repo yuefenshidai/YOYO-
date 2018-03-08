@@ -1,4 +1,4 @@
-// pages/mall/child/mallItem/mallItem.js
+// pages/home/child/packageA/illegal/child/illegal_result/illegal_result.js
 Page({
 
   /**

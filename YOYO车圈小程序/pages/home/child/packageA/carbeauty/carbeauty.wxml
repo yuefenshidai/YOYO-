@@ -1,3 +1,32 @@
-<!--pages/home/child/carbeauty/carbeauty.wxml-->
-<text>pages/home/child/carbeauty/carbeauty.wxml</text>
-<text>汽车美容</text>
+<view class='service_List'>
+	<view class='service_List_item' wx:for="{{List}}" wx:key="{{item.shopname}}">
+		<view class='service_item_top flex'>
+			<view class='leftIcon'>
+				<image src="{{urlroot + 'commonAction/getimg?fileName=slt/'+item.shopname+'.jpg'}}" binderror='imgerror' data-index="{{index}}" wx-if="{{item.imageurl==''}}"></image>
+				<image src="../image/errorImg.png" wx-if="{{item.imageurl=='error'}}"></image>
+			</view>
+			<view class='rightInfoWrap'>
+				<view class='title'>{{item.shopname}}</view>
+				<view class='address'>{{item.shopaddress}}</view>
+				<wxs module="distan">
+					var calcDistan = function(distan){
+						return parseInt(distan*1000)
+					}
+					module.exports.calcDistan = calcDistan
+				</wxs>
+				<view class='distance'>{{distan.calcDistan(item.distance)}}米</view>
+			</view>
+		</view>
+		<view class='service_item_bottom flex'>
+			<view class="call {{item.shoptel==''?'unable':''}}" data-phone="{{item.shoptel}}" bindtap='call'>
+				<image src="../image/phone.png" wx:if="{{item.shoptel!=''}}"></image>
+				<image src="../image/phone-S.png" wx:if="{{item.shoptel==''}}"></image>
+				<text>拨打电话</text>
+			</view>
+			<view class='gps' data-x="{{item.locationsx}}" data-y="{{item.locationsy}}" bindtap='gps'>
+				<image src="../image/dingwei.png"></image>
+				<text>导航</text>
+			</view>
+		</view>
+	</view>
+</view>

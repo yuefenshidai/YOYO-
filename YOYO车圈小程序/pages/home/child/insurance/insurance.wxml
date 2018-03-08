@@ -1,3 +1,4 @@
 <!--pages/home/child/insurance/insurance.wxml-->
-<text>pages/home/child/insurance/insurance.wxml</text>
-<text>买车险</text>
+<!-- <text>pages/home/child/insurance/insurance.wxml</text>
+<text>买车险</text> -->
+<web-view src="http://m.ecpic.com.cn/mcar/pages/carInsurance.html?sourceType=msb&isShow=1&branchCode=6010100&centralBranchCode=510000&assignAgent=A00201&otherSource=8824&subOtherSource=A00201-92Y-1&insurerDeptCode=C00&insurerSectionCode=C00&insurerIssuePoint=&insurerDeptGroupCode=510000&staffCode=A00201&staffName=白蓉灵&recordCode=A0076F&recordName=唐琴&reCentralBranchCode=510000&reDeptCode=C00&reSectionCode=C00B&reIssuePoint=&reDeptGroupCode=510000&agencyId=92Y&salesName=&salesCode=&agentName=%E9%87%91%E6%83%A0%E5%AE%B6%E4%BF%9D%E9%99%A9%E4%BB%A3%E7%90%86%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&sellingChannel=45&actualSalesPerson=&areaCode=6010100&citySelected=510100&"></web-view>

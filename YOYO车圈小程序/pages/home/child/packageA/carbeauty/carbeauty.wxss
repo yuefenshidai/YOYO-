@@ -1,1 +1,71 @@
 /* pages/home/child/carbeauty/carbeauty.wxss */
+.service_List{
+	background-color: #f7f7f7;
+}
+.service_List_item{
+	background-color: #fff;
+	margin-bottom: 20rpx;
+}
+.service_item_top{
+	padding: 30rpx;
+}
+.service_item_top  .leftIcon{
+	width: 130rpx;
+	flex: 0 0 130rpx;
+	margin-right: 20rpx;
+}
+.service_item_top  .rightInfoWrap{
+	flex: 1;
+	width: 540rpx;
+	position: relative;
+}
+.service_item_top  .rightInfoWrap .distance{
+	position: absolute;
+	font-size: 20rpx;
+	color: #333;
+	right: 0;
+	top: -10rpx;
+}
+.service_item_top  .leftIcon image{
+	width: 100%;
+	height: 130rpx;
+	border-radius: 2rpx;
+}
+.service_item_top  .rightInfoWrap view{
+	line-height: 1;
+}
+.service_item_top  .rightInfoWrap .title{
+	font-size: 30rpx;
+	color: #333;
+}
+.service_item_top  .rightInfoWrap .address{
+	font-size: 24rpx;
+	color: #8b8b8b;
+	margin-top: 50rpx;
+}
+.service_item_bottom{
+	border-top: 1rpx solid #e7e7e7;
+	background-color: #fff;
+	align-items: center;
+}
+.service_item_bottom view {
+	flex: 1;
+	padding: 25rpx 30rpx;
+	text-align: center;
+}
+.service_item_bottom .call{
+	border-right: 1rpx solid #e7e7e7;
+}
+.service_item_bottom .call image,.service_item_bottom .gps image {
+	width: 30rpx;
+	height: 30rpx;
+	margin-right: 10rpx;
+	vertical-align: middle;
+}
+.service_item_bottom .call text,.service_item_bottom .gps text{
+	font-size: 30rpx;
+	color: #ff7c5e;
+}
+.service_item_bottom .unable text{
+	color: rgb(238, 238, 238);
+}
