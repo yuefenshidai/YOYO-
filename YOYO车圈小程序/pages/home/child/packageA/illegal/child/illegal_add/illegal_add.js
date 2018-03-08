@@ -1,5 +1,6 @@
 // pages/home/child/packageA/illegal/child/illegal_add/illegal_add.js
 import util from '../../../../../../../utils/util.js'
+import ajax from '../../../../../../../assets/js/ajax.js'
 Page({
 
   /**
@@ -14,7 +15,8 @@ Page({
 		Vin:null,
 		engineNo:null
 	},
-	tips:null
+	tips:null,
+	sureLoading:false
   },
 
   /**
@@ -92,12 +94,31 @@ Page({
   },
 
   sureSubmit(e){
-	if (this.checkInfo()==''){
-		let app = getApp()
-		app.sendEvt({
-			evt: 'added',
-			data: 'aaa'
+	if (this.data.sureLoading) return 
+	if (this.checkInfo()==' '){
+		this.setData({ sureLoading:true})
+		ajax.GET('BCarinformationService/queryViolation',{
+			plateNumber: '川'+this.data.formData.licenseNo,
+			engineNo: this.data.formData.engineNo,
+			vin: this.data.formData.Vin,
+			carType: "02",
+			city:''
+		}).then(res=>{
+			this.setData({ sureLoading: false })
+			wx.setStorageSync('ViolationInfo', res.data)
+			wx.navigateTo({
+				url: '../illegal_result/illegal_result',
+			})
+		},res=>{
+			this.setData({ sureLoading: false })
+			wx.showModal({
+				title: '提示',
+				content:'查询失败,请检查是否填写错误',
+				showCancel: false,
+				confirmColor: " #ff7c5e"
+			})
 		})
+		
 	}else{
 		this.setData({ tips: this.checkInfo()})
 	}
@@ -108,7 +129,7 @@ Page({
 	  if (!this.data.formData.licenseNo || this.data.formData.licenseNo.length != 6){
 		  result = '车牌号有误'
 	  } 
-	  if (!this.data.formData.licenseNo || this.data.formData.Vin.length < 15) {
+	  if (!this.data.formData.licenseNo || this.data.formData.Vin.length < 6) {
 		  result = '车架号有误'
 	  }
 	  if (!this.data.formData.licenseNo || this.data.formData.engineNo.length <6) {

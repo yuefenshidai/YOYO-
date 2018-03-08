@@ -13,7 +13,7 @@
 	<view class='carInfoWrapItem'>
 		<view class='carInfoWrapItem_Inner flex'>
 			<text>车牌号</text>
-			<input placeholder='请输入车牌号' bindinput='inputEvt' data-type='licenseNo' value='{{formData.licenseNo}}'></input>
+			<input placeholder='请输入车牌号' bindinput='inputEvt' data-type='licenseNo' value="{{formData.licenseNo}}" maxlength='6'></input>
 		</view>
 	</view>
 	<view class='carInfoWrapItem'>

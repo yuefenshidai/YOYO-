@@ -1,2 +1,14 @@
-<!--pages/home/child/packageA/illegal/child/illegal_result/illegal_result.wxml-->
-<text>pages/home/child/packageA/illegal/child/illegal_result/illegal_result.wxml</text>
+<view class='topWrap flex'>
+	<view class='leftInfo'>
+		<view>{{Info.plateNumber}}</view>
+		<view>未处理罚款：{{Info.data.totalFine}}</view>
+		<view>未处理扣分：{{Info.data.totalPoints}}</view>
+	</view>
+	<view class='rightIcon'>
+		<image></image>
+	</view>
+</view>
+<view class='resultListWrap flex'>
+	<view class='leftLineWrap'></view>
+	<view class='rightInfoWrap'></view>
+</view>
