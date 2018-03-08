@@ -99,19 +99,10 @@ Page({
 
   },
 
-
-  /**
-   * 点击触发
-   */
-  checkMe: function (data) {
-    console.log('点击了' + JSON.stringify(data, null, 2));
-  },
-
   /**
    * 请求得到商品数据
    */
   getGoodsData: function () {
-    // let url = getApp().globalData.url_root;
     let this_ = this;
     let arr = this.data.goods_arr;
     wx.request({
@@ -137,14 +128,18 @@ Page({
             goods_arr: arr
           });
         }
-
       }
     });
   },
 
 
-  //显示产品数据
-  showGoodsInfo() {
-    console.log(this.data.goods_arr);
+  //显示产品详情
+  goodDetail(e){
+    let data = e.currentTarget.dataset;
+    let pro_id_ = data.pro_id;
+    let sku_id = data.sku_id;
+    wx.navigateTo({
+      url: 'child/mallItem/mallItem?pro_id=' + pro_id_ + '&sku_id=' + sku_id
+    })
   }
 })

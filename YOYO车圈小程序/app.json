@@ -40,7 +40,8 @@
             "root": "pages/mall/child",
             "pages": [
                 "itemBuy/itemBuy",
-                "mallItem/mallItem"
+                "mallItem/mallItem",
+                "address/address"
             ]
         }
     ],

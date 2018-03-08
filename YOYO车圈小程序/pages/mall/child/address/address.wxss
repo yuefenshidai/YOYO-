@@ -1,0 +1,83 @@
+view {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 750rpx;
+  box-sizing: border-box;
+  background: white;
+}
+
+.address_container {
+  background: #f7f7f7;
+}
+
+.address_container .address_grounp {
+}
+
+.address_container .address_grounp .address_item {
+  background: chartreuse;
+}
+
+.address_container .address_grounp .address_item view {
+  width: 100%;
+}
+
+.address_container .address_grounp .address_item .address_main {
+  padding: 30rpx 30rpx 20rpx 30rpx;
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+}
+
+.address_container .address_grounp .address_item .address_main .top {
+  line-height: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.address_container .address_grounp .address_item .address_main .top text {
+  font-size: 28rpx;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.address_container .address_grounp .address_item .address_main .top text.name {
+  margin-right: 20rpx;
+  display: inline-block;
+  width: 155rpx;
+}
+
+.address_container .address_grounp .address_item .address_main .bottom {
+  font-size: 24rpx;
+  color: rgb(106, 106, 106);
+}
+
+.address_container .address_grounp .address_item .control_address {
+   /* line-height: 26rpx; */
+  height: 71.6rpx; 
+  padding: 0 30rpx;
+  background: chartreuse;
+}
+
+.address_container .add_address {
+  text-align: center;
+  position: fixed;
+  bottom: 80rpx;
+  background: rgb(255, 124, 94);
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 90%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.address_container .add_address image {
+  display: inline-block;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.address_container .add_address text {
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: white;
+  margin-left: 5rpx;
+}
