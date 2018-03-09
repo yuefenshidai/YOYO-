@@ -1,3 +1,71 @@
 <!--pages/mall/child/itemBuye/itemBuye.wxml-->
-<text>pages/mall/child/itemBuye/itemBuye.wxml</text>
-<text>商城产品结算</text>
+<!-- <text>pages/mall/child/itemBuye/itemBuye.wxml</text>
+<text>商城产品结算</text>   -->
+
+<view class='itemBuye_container'>
+  <view class='now_point_container'>当前账户积分余额：{{ can_use_point }}积分</view>
+  <view class='receiving_address'>
+    <view class='top'>
+      <text class='name'> {{ ueser_address.name }} </text>
+      <text class='tel'>{{ ueser_address.tel }}</text>
+    </view>
+    <view class='bottom'>
+      <text class='address'>{{ ueser_address.region+' '+ueser_address.address }}</text>
+    </view>
+    <view class='show_more_address' bindtap='goChoiceAddress'>
+      <image src='http://www.happyinstallment.com/app/image/mall-order-confirm/rightarrow.png'></image>
+    </view>
+  </view>
+  <view class='goods_info'>
+    <view class='img'>
+      <image src='{{ pro_img }}'></image>
+    </view>
+    <view class='title'>
+      <view class='top'>
+        <text>{{ pro_title }}</text>
+      </view>
+      <view>
+        <text class='point'>{{ price_now }}</text>
+        <text style='color:rgb(51, 51, 51);'>积分</text>
+      </view>
+    </view>
+  </view>
+  <view class='choice_number'>
+    <text>数量</text>
+    <view>
+      <view class='reduce' bindtap='addOrReduceGoodsNum' data-buy_type='reduce'><image src='./img/minus.png'></image></view>
+      <view class='npt'><input type='number' value='{{ buy_num }}' bindinput='addOrReduceGoodsNum' data-buy_type='npt'></input></view>
+      <view class='add' bindtap='addOrReduceGoodsNum'  data-buy_type='add'><image src='./img/plus.png'></image></view>
+    </view>
+  </view>
+  <view class='choice_number use_point'>
+    <text>使用积分</text>
+    <view>
+       <view class='npt'><input type='number' value='{{ use_point }}' bindinput='changeUsePoint'></input></view>
+       <view class='point'>
+          <text>积分</text>
+       </view>
+    </view>
+  </view>
+  <view class='choice_number ready_money'>
+    <text>现金</text>
+    <view>
+      <text>{{ buy_num*price_now-use_point }}元</text>
+    </view>
+  </view>
+  <view class='choice_number coupon'>
+    <text>优惠券</text>
+    <view>
+      <view class='text'>
+        <text>不可用</text>
+      </view>
+      <view class='img'>  
+        <image src='http://www.happyinstallment.com/app/image/mall-order-confirm/rightarrow.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='pay_order'>
+    <view class='pay_money'>{{ buy_num*price_now-use_point }}元</view>
+    <view class='pay_now'>支付订单</view>
+  </view>
+</view>

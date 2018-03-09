@@ -1,0 +1,23 @@
+ <!-- <view>地址信息</view>  -->
+<view class='address_container'>
+    <view class='address_grounp'>
+      <view class='address_item'>
+        <view class='address_main'>
+          <view class='top'>
+            <text class='name'>吕升林</text>
+            <text class='tel'>16623565</text>
+          </view>
+          <view class='bottom'>
+              柏杨村
+          </view>
+        </view>
+        <view class='control_address'>
+          
+        </view>
+      </view>
+    </view>
+    <view class='add_address'>
+      <image src='http://www.happyinstallment.com/app/image/addressList/plus.png'></image>
+      <text>添加地址</text>
+    </view>
+</view>
