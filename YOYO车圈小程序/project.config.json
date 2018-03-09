@@ -26,42 +26,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 1,
 			"list": [
 				{
-					"id": 0,
-					"name": "user",
-					"pathName": "pages/user/user",
+					"id": -1,
+					"name": "车价评估",
+					"pathName": "pages/home/child/packageA/evaluation/child/Vehiclebrand/Vehiclebrand",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "login",
-					"pathName": "pages/common/login/login",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "user",
-					"pathName": "pages/home/child/packageA/carbeauty/carbeauty",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "user",
-					"pathName": "pages/home/child/packageA/illegal/illegal",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "user",
-					"pathName": "pages/home/child/packageA/illegal/child/illegal_add/illegal_add",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "user",
-					"pathName": "pages/home/child/packageA/illegal/child/illegal_result/illegal_result",
+					"name": "车价评估",
+					"pathName": "pages/home/child/packageA/evaluation/child/Vehiclebrand/Vehiclebrand",
 					"query": ""
 				}
 			]

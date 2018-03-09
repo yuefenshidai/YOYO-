@@ -1,0 +1,63 @@
+
+<view class='resulltDetailListWrap'>
+	<view class='resulltDetailListWrapItem flex'>
+		<view class='leftLabel'>
+			<text>车牌号</text>
+		</view>
+		<view class='rightContent'>
+			<text>{{Info.plateNumber}}</text>
+		</view>
+	</view>
+	<view class='resulltDetailListWrapItem flex'>
+		<view class='leftLabel'>
+			<text>品牌种类</text>
+		</view>
+		<view class='rightContent'>
+			<text>小汽车类</text>
+		</view>
+	</view>
+	<view class='resulltDetailListWrapItem flex'>
+		<view class='leftLabel'>
+			<text>违章时间</text>
+		</view>
+		<view class='rightContent'>
+			<text>{{itemInfo.time}}</text>
+		</view>
+	</view>
+	<view class='resulltDetailListWrapItem flex'>
+		<view class='leftLabel'>
+			<text>违章地点</text>
+		</view>
+		<view class='rightContent'>
+			<text>{{itemInfo.city}} {{itemInfo.address}}</text>
+		</view>
+	</view>
+	<view class='resulltDetailListWrapItem flex'>
+		<view class='leftLabel'>
+			<text>违章行为</text>
+		</view>
+		<view class='rightContent'>
+			<text>{{itemInfo.reason}}</text>
+		</view>
+	</view>
+	<view class='resulltDetailListWrapItem flex'>
+		<view class='leftLabel'>
+			<text>处理标记</text>
+		</view>
+		<view class='rightContent'>
+			<text wx:if="{{itemInfo.processStatus==1}}">未处理</text>
+			<text wx:if="{{itemInfo.processStatus==2}}">处理中</text>
+			<text wx:if="{{itemInfo.processStatus==3}}">已处理</text>
+			<text wx:if="{{itemInfo.processStatus==4}}">不支持</text>
+		</view>
+	</view>
+	<view class='resulltDetailListWrapItem flex'>
+		<view class='leftLabel'>
+			<text>缴款标记</text>
+		</view>
+		<view class='rightContent'>
+			<text wx:if="{{itemInfo.paymentStatus==1}}">未缴费</text>
+			<text wx:if="{{itemInfo.paymentStatus==2}}">已缴费</text>
+		</view>
+	</view>
+</view>

@@ -1,4 +1,4 @@
-// pages/home/child/packageA/illegal/child/illegal_result/illegal_result.js
+// pages/home/child/packageA/illegal/child/illegal_result_detail/illegal_result_detail.js
 Page({
 
   /**
@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
 	  let Info = wx.getStorageSync('ViolationInfo')
-	  this.setData({ Info: Info})
+	  this.setData({ Info: Info, itemInfo: Info.data.violations[options.idx] })
   },
 
   /**
@@ -63,10 +63,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  linkToResultDetail(e){
-	  wx.navigateTo({
-		  url: '../illegal_result_detail/illegal_result_detail?idx=' + e.currentTarget.dataset.idx
-	  })
   }
 })
