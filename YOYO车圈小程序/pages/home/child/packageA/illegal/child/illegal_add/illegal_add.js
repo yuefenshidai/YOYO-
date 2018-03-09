@@ -11,9 +11,9 @@ Page({
 	fromdate: '2000-01-01',
 	nowdate:null,
 	formData:{
-		licenseNo:null,
-		Vin:null,
-		engineNo:null
+		licenseNo:'',
+		Vin: '',
+		engineNo: ''
 	},
 	tips:null,
 	sureLoading:false
@@ -29,82 +29,71 @@ Page({
 		nowdate: _date.substring(0,10)
 	})
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-
-  nextStep(){
-	  this.setData({ Step:2})
-  },
-
+//点击下一步先查有没有查询过本车的信息，如果有则把数据帮用户填上，如果没有则让用户自己填
+nextStep(){
+	let Info = wx.getStorageSync('ViolationQueryDATA')
+	let _flag =0
+	let itemInInfo = null
+	if (Info){
+		Info.forEach((item,i)=>{
+			if (item.plateNumber == '川' + this.data.formData.licenseNo){
+				_flag++
+				itemInInfo = item
+			}else{
+				_flag--
+			}
+		})
+		if (_flag>0){
+			let formData = this.data.formData
+			formData.licenseNo = itemInInfo.plateNumber.replace('川', '')
+			formData.Vin = itemInInfo.vin
+			formData.engineNo = itemInInfo.engineNo
+			this.setData({
+				formData: formData,
+				Step: 2
+			})
+		}
+	}else{
+		if (this.data.formData.licenseNo && this.data.formData.licenseNo.length == 6) {
+			this.setData({ Step: 2 })
+		}
+	}
+},
+//实时记录用户的输入，并保存
   inputEvt(e){
 	let formData = this.data.formData
 	formData[e.currentTarget.dataset.type] = e.detail.value.toUpperCase()
 	this.setData({ formData: formData,tips:null})
   },
-
+//日期选择
   pikcerDateChange(e){
 	  this.setData({ nowdate: e.detail.value})
   },
-
+//提交用户的输入如果成功把结果跟输入的信息放在本地
   sureSubmit(e){
 	if (this.data.sureLoading) return 
 	if (this.checkInfo()==' '){
 		this.setData({ sureLoading:true})
-		ajax.GET('BCarinformationService/queryViolation',{
-			plateNumber: '川'+this.data.formData.licenseNo,
+		let _data = {
+			plateNumber: '川' + this.data.formData.licenseNo,
 			engineNo: this.data.formData.engineNo,
 			vin: this.data.formData.Vin,
 			carType: "02",
-			city:''
-		}).then(res=>{
+			city: ''
+		}
+		ajax.GET('BCarinformationService/queryViolation', _data).then(res=>{
 			this.setData({ sureLoading: false })
+			let ViolationQueryDATA = wx.getStorageSync('ViolationQueryDATA')||[]
+			let Flag = 0
+			if (ViolationQueryDATA){
+				ViolationQueryDATA.length > 0 && ViolationQueryDATA.forEach((item, i) => {
+					item.plateNumber == _data.plateNumber ? Flag++ : Flag--
+				})
+				if (Flag<=0){
+					ViolationQueryDATA.push(_data)
+				}
+			}
+			wx.setStorageSync('ViolationQueryDATA', ViolationQueryDATA)
 			wx.setStorageSync('ViolationInfo', res.data)
 			wx.navigateTo({
 				url: '../illegal_result/illegal_result',
@@ -113,7 +102,7 @@ Page({
 			this.setData({ sureLoading: false })
 			wx.showModal({
 				title: '提示',
-				content:'查询失败,请检查是否填写错误',
+				content:res.data,
 				showCancel: false,
 				confirmColor: " #ff7c5e"
 			})
@@ -123,7 +112,7 @@ Page({
 		this.setData({ tips: this.checkInfo()})
 	}
   },
-
+//检查用户的输入
   checkInfo(){
 	  let result = ' '
 	  if (!this.data.formData.licenseNo || this.data.formData.licenseNo.length != 6){

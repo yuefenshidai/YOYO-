@@ -80,6 +80,7 @@ Page({
 	 * 请求首页商城数据
 	 */
 	getMallInfo(){
+		wx.showNavigationBarLoading()
 		let url = getApp().globalData.url_root 
 		wx.request({
 			url: url + 'TProductSkuService/getAllInteProd', 
@@ -88,6 +89,7 @@ Page({
 				limit: 6,
 			},
 			success:  res=> {
+				wx.hideNavigationBarLoading()
 				this.setData({
 					homeMallList:res.data.rows
 				})
@@ -99,6 +101,7 @@ Page({
 	 * 请求首页商城数据
 	 */
 	getNewList(){
+		wx.showNavigationBarLoading()
 		let url = getApp().globalData.url_root
 		wx.request({
 			url: url + 'TnewsService/getNewsByType',
@@ -108,6 +111,7 @@ Page({
 				type: 1
 			},
 			success: res => {
+				wx.hideNavigationBarLoading()
 				this.setData({
 					homeNewsList: res.data.rows
 				})

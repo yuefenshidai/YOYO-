@@ -15,7 +15,7 @@
         "navigationBarTitleText": "YOYO车圈",
         "navigationBarTextStyle": "white",
         "backgroundColor": "#f7f7f7",
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": false
     },
     "subPackages": [
         {
@@ -33,7 +33,10 @@
                 "expedited/expedited",
                 "illegal/illegal",
                 "rescue/rescue",
-                "illegal/child/illegal_result/illegal_result",							"illegal/child/illegal_add/illegal_add"
+                "illegal/child/illegal_result/illegal_result",
+                "illegal/child/illegal_add/illegal_add",
+"illegal/child/illegal_result_detail/illegal_result_detail",
+				"evaluation/child/Vehiclebrand/Vehiclebrand"
             ]
         },
         {
