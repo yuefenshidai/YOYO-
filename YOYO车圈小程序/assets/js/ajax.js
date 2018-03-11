@@ -1,6 +1,5 @@
-const POST = (url,data)=> {
+const POST = (url,data={})=> {
 	return new Promise((resolve, reject)=>{
-		let  _data = data || {}
 		let _url = null
 		let Info = wx.getStorageSync('yfsdmember') || false
 		if (Info) {
