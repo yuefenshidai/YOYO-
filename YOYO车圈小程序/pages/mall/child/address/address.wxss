@@ -12,10 +12,12 @@ view {
 }
 
 .address_container .address_grounp {
+  background: #F7F7F7;
 }
 
 .address_container .address_grounp .address_item {
   background: chartreuse;
+  margin-bottom: 20rpx;
 }
 
 .address_container .address_grounp .address_item view {
@@ -50,11 +52,68 @@ view {
 }
 
 .address_container .address_grounp .address_item .control_address {
-   /* line-height: 26rpx; */
-  height: 71.6rpx; 
+  height: 71.6rpx;
   padding: 0 30rpx;
-  background: chartreuse;
 }
+
+.address_container .address_grounp .address_item .control_address>view {
+  height: 100%;
+  float: left;
+}
+
+.address_container .address_grounp .address_item .control_address .choice_default {
+  width: 200rpx;
+  position: relative;
+  padding-left: 60rpx;
+}
+
+.address_container .address_grounp .address_item .control_address .choice_default icon {
+  display: inline-block;
+  position: absolute;
+  top: 15rpx;
+  left: 0;
+}
+
+.address_container .address_grounp .address_item .control_address .choice_default .ch_text {
+  font-size: 26rpx;
+  color: rgb(51, 51, 51);
+  line-height: 71.6rpx;
+}
+
+.address_container .address_grounp .address_item .control_address .control {
+  height: 71.6rpx;
+  width: 140rpx;
+  padding-top: 15rpx;
+  line-height: 16rpx;
+  padding-left: 30rpx;
+}
+
+.address_container .address_grounp .address_item .control_address .control image {
+  height: 36rpx;
+  width: 40rpx;
+  float: left;
+}
+
+.address_container .address_grounp .address_item .control_address .control text {
+  display:inline-block;
+  line-height: 16rpx;
+  font-size: 16rpx;
+  float: left;
+}
+
+.address_container .address_grounp .address_item .control_address .edite{
+  margin-left: 210rpx;
+}
+
+
+
+
+
+
+
+
+
+
 
 .address_container .add_address {
   text-align: center;

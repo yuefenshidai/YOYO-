@@ -1,23 +1,34 @@
- <!-- <view>地址信息</view>  -->
+<!-- <view>地址信息</view>  -->
 <view class='address_container'>
-    <view class='address_grounp'>
-      <view class='address_item'>
-        <view class='address_main'>
-          <view class='top'>
-            <text class='name'>吕升林</text>
-            <text class='tel'>16623565</text>
-          </view>
-          <view class='bottom'>
-              柏杨村
-          </view>
+  <view class='address_grounp'>
+    <view class='address_item' wx:for='{{ address_arr }}'>
+      <view class='address_main' data-default_index='{{ index }}' bindtap='goItemBuy'>
+        <view class='top' >
+          <text class='name'>{{ item.aname }}</text>
+          <text class='tel'>{{ item.aphone }}</text>
         </view>
-        <view class='control_address'>
-          
+        <view class='bottom'>
+          {{ item.address }}
+        </view>
+      </view>
+      <view class='control_address'>
+        <view class='choice_default' bindtap='setDefaultAddress' data-default_index='{{ index }}' data-address_id='{{ item.bUseraddressid }}'>
+          <icon type='{{ default_address == index ? "success" : "circle" }}' size='20' color='green'></icon>
+          <text class='ch_text'>默认地址</text>
+        </view>
+        <view class='control edite'>
+          <image src='http://www.happyinstallment.com/app/image/addressList/edit.png'></image>
+          <text bindtap='goAddOrChangeAddress'>编辑</text>
+        </view>
+        <view class='control delete' bindtap='deleteAddress' data-delete_id='{{ item.bUseraddressid }}' data-delete_index='{{ item.index }}'>
+          <image src='http://www.happyinstallment.com/app/image/addressList/delete.png'></image>
+          <text>删除</text>
         </view>
       </view>
     </view>
-    <view class='add_address'>
-      <image src='http://www.happyinstallment.com/app/image/addressList/plus.png'></image>
-      <text>添加地址</text>
-    </view>
+  </view>
+  <view class='add_address'>
+    <image src='http://www.happyinstallment.com/app/image/addressList/plus.png'></image>
+    <text>添加地址</text>
+  </view>
 </view>

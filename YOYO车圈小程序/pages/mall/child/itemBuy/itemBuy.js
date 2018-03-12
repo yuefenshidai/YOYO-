@@ -23,13 +23,14 @@ Page({
     price_now: 0,//选中商品现在售价
     price_before: 0,//选中商品的以前售价
     goods_max: 0,   //库存
-    can_use_point : 0,  //可使用的积分
-    use_point : 0,  //要使用积分的数量
-    ueser_address : {
-      name : '',  //收件人的姓名
-      address : '',  //详细地址
-      region : '',  //地区
-      tel : '' //收件人点话
+    can_use_point: 0,  //可使用的积分
+    use_point: 0,  //要使用积分的数量
+    ueser_address: {
+      name: '',  //收件人的姓名
+      address: '',  //详细地址
+      region: '',  //地区
+      tel: '', //收件人点话
+      address_id : ''
     }
   },
 
@@ -62,46 +63,46 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
 
   //初始化订单数据
-  initialOrderData : function(pro_info){
+  initialOrderData: function (pro_info) {
     this.setData({
       pro_title: pro_info.pro_name,  //产品的标题
       pro_img: pro_info.pro_avatar,  //产品banner图
@@ -151,28 +152,28 @@ Page({
   },
 
   //获取能使用的积分
-  getPoint(){
+  getPoint() {
     let this_ = this;
     ajax.GET('BMemberService/getByid').then(res => {
-      this_.setData({ 
-        can_use_point:res.data.integral
+      this_.setData({
+        can_use_point: res.data.integral
       })
     })
   },
 
   //输入使用多少积分
-  changeUsePoint(e){
+  changeUsePoint(e) {
     let po = e.detail.value;
     let can_user_po = this.data.can_use_point;
-    if (po > can_user_po){
+    if (po > can_user_po) {
       this.setData({
         use_point: can_user_po
       });
       wx.showToast({
-        title: '你能使用的积分为' + this.data.can_use_point+'积分',
-        icon : 'none'
+        title: '你能使用的积分为' + this.data.can_use_point + '积分',
+        icon: 'none'
       })
-    }else {
+    } else {
       this.setData({
         use_point: po
       });
@@ -180,25 +181,26 @@ Page({
   },
 
   //获取用户的收货地址
-  getAddress(){
+  getAddress() {
     let this_ = this;
-    ajax.GET('BMemberService/getUserAddress',{
+    ajax.GET('BMemberService/getUserAddress', {
       isdefaultads: 1
-    }).then(res=>{
+    }).then(res => {
       let address_da = res.data[0];
       this_.setData({
         ueser_address: {
           name: address_da.aname,  //收件人的姓名
           address: address_da.address,  //详细地址
           region: address_da.region,  //地区
-          tel: address_da.aphone //收件人点话
+          tel: address_da.aphone, //收件人点话
+          address_id : address_da.bUseraddressid  //收货地址的id
         }
       });
     });
   },
 
   //跳转选收货地址页面
-  goChoiceAddress () {
+  goChoiceAddress() {
     wx.navigateTo({
       url: '../../child/address/address',
     })
