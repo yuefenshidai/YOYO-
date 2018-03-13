@@ -1,0 +1,19 @@
+  <scroll-view class="brandListWrap" id='brandListWrap' scroll-y="{{true}}">
+	<view class='brandListWrap_Group' wx:for="{{List}}" wx:key="{{item.key}}">
+		<view class='brandListWrap_GroupTitle' id="{{item.key}}">{{item.key}}</view>
+		<view class='brandListWrap_GroupList'>
+			<view class='brandListWrap_GroupList_Item flex' wx:for="{{item.list}}" wx:for-index="idx" wx:for-item="el" wx:key="{{el.id}}" data-id="{{el.id}}" data-Imgid="{{el.idx}}" data-title="{{el.big_ppname}}" bindtap='chooseXil'>
+				 <image src="{{'http://www.happyinstallment.com/app/image/Vehiclebrand-images/'+el.idx + '.jpg' }}"></image> 
+				<text>{{el.big_ppname}}</text>
+			</view>
+		</view>
+	</view>
+</scroll-view> 
+<view class='selectWrap' wx:if="{{Viewtype=='Vehiclebrand'}}">
+	<view class='selectWrap_item' wx:for="{{letters}}"  bindtouchstart='SrcollLetterStart' bindtouchend='SrcollLetterEnd' data-letter="{{item}}" wx:key="{{item}}">
+		{{item}}
+	</view>
+</view>
+<view class='posShow' hidden='{{!viewLetter}}'>
+ 	{{viewLetter}}
+</view>

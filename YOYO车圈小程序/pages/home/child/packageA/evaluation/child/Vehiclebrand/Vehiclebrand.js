@@ -1,4 +1,3 @@
-// pages/home/child/packageA/evaluation/child/Vehiclebrand/Vehiclebrand.js
 import Brand from '../resource/carbrand.js'
 
 Page({
@@ -17,69 +16,12 @@ Page({
    */
   onLoad: function (options) {
 	  this.CreatList()
-	  this.CreatChooseList()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-
-  //创建选择列表
-  CreatChooseList(){
-	  const letters = ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z']
-	  this.setData({
-		  letters: letters
-	  })
-  },
   //获取品牌列表
   CreatList(){
 	  let List = Brand.carbrand.result, result = [],  idx=0
-	  let KEYS=[],VALUES=[]
+	  let KEYS=[]
 
 	  //为每一项添加图片编号
 	  for (var key in List){
@@ -118,6 +60,7 @@ Page({
 	this.setData({
 		List: KEYS
 	})
+	wx.hideNavigationBarLoading()
   },
 
   //把不需显示的剔除出来
@@ -131,31 +74,5 @@ Page({
 		  }
 	  }
 	  return result
-  },
-  
-  //右侧选择按键
-  SrcollLetterStart(e){
-	  let id = '#'+ e.currentTarget.dataset.letter
-	  this.setData({
-		  viewLetter: e.currentTarget.dataset.letter
-	  })
-	  wx.createSelectorQuery().selectViewport('#brandListWrap').scrollOffset(res=> {
-		  this.setData({
-			  Scrolltop: res.scrollTop
-		  })
-	  }).exec()
-	  wx.createSelectorQuery().select(id).boundingClientRect( (res) =>{
-		  let Scrolltop = this.data.Scrolltop
-		  Scrolltop += res.top
-		  wx.pageScrollTo({
-			  scrollTop: Scrolltop,
-			  duration:0
-		  })
-	  }).exec()
-  },
-  SrcollLetterEnd(e){
-	  this.setData({
-		  viewLetter: null
-	  })
   }
 })

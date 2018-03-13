@@ -6,7 +6,11 @@ Page({
    */
   data: {
 	  evaluations:{
-		  data:null,
+		  chooseBrand:{
+			  name:'请选择车型',
+			  id:null
+		  },
+		  date:null,
 		  carUse:{
 			name:'自用',
 			value:1
@@ -14,9 +18,14 @@ Page({
 		  carStatus: {
 			  name: '一般',
 			  value: 2
-		  }
+		  },
+		  driveLong:0,
+		  buyPrice:0
 	  },
-	  isChoosed:false
+	  isChoosed:false,
+	  endTime:null,
+	  choosedImg:'',
+	  offer_now_loading:false
   },
 
   /**
@@ -32,14 +41,18 @@ Page({
 			  timingFunc: 'easeIn'
 		  }
 	  })
-
+	  
 	  //获取时间
 	  let date = new Date()
 	  let evaluations = this.data.evaluations
-	  evaluations.date = util.formatTime(date).substring(0, 7).replace(/\//g, '-')
+	  let now = util.formatTime(date).substring(0, 7).replace(/\//g,'-')
+	  evaluations.date = now
 	  this.setData({
-		  evaluations: evaluations
+		  evaluations: evaluations,
+		  endTime: now
 	  })
+	  //设置监听
+	  this.eventListen()
   },
 
   //时间选择器改变
@@ -87,12 +100,81 @@ Page({
 	  })
   	},
 
-	//选择车型
+
+
+//选择车型
   chooseCarBrand(e){
 	  if (!this.data.isChoosed){
 		  wx.navigateTo({
 			  url: './child/Vehiclebrand/Vehiclebrand',
 		  })
 	  }
-  }
+  },
+
+  //行驶里程监控
+  driveLong(e){
+	  console.log(e)
+	  let evaluations = this.data.evaluations
+	  evaluations.driveLong= e.detail.value
+	  this.setData({
+		  evaluations: evaluations
+	  })
+  },
+
+
+  //购买价格监控
+	buyPrice(e){
+		console.log(e)
+		let evaluations = this.data.evaluations
+		evaluations.buyPrice = e.detail.value
+		this.setData({
+			evaluations: evaluations
+		})
+	},
+
+  //注册事件监听
+	eventListen(){
+		let app = getApp();
+		app.listenEvt('chooseBrand',(res)=>{
+			let evaluations = this.data.evaluations
+			evaluations.chooseBrand.name = res.title
+			evaluations.chooseBrand.id = res.id
+			evaluations.chooseBrand.imgid = res.imgid
+			this.setData({
+				evaluations: evaluations,
+				choosedImg: "http://www.happyinstallment.com/app/image/Vehiclebrand-images/" + res.imgid+".jpg"
+			})
+		})
+	},
+
+	//开始估价
+	sureOff(){
+		if (this.checkInfo()==''){
+			let evaluations = JSON.stringify(this.data.evaluations)
+			wx.navigateTo({
+				url: './child/evaluation_result/evaluation_result?data=' + evaluations
+			})
+		}else{
+			wx.showModal({
+				title: '提示',
+				content: this.checkInfo().trim(),
+				showCancel: false,
+				confirmColor: " #ff7c5e"
+			})
+		}
+	},
+
+	//检查估价的信息是否填写完毕
+	checkInfo(){
+		let evaluations = this.data.evaluations
+		let result = ''
+		if (evaluations.buyPrice == 0) result = '购车价不能为空'
+		if (evaluations.driveLong == 0) result = '行驶里程不能为空'
+		if (!evaluations.carStatus.value) result = '还没有选择车辆状况'
+		if (!evaluations.carUse.value) result = '还没有选择车辆用途'
+		if (!evaluations.date) result = '还没有选择注册日期'
+		if (!evaluations.chooseBrand.id) result = '还没有选择车型'
+		return result
+	}
+
 })

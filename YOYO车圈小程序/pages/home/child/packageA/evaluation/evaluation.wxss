@@ -21,10 +21,11 @@ page{
 	top: -50rpx;
 	margin-left: -50rpx;
 	padding: 10rpx;
+	text-align: center;
 }
 .evaluationWrap_Inner .carLogo image {
-	width: 80rpx;
-	height: 80rpx;
+	width: 100rpx;
+	height: 100rpx;
 	border-radius: 50%;
 }
 .Inner_List{
@@ -65,4 +66,16 @@ page{
 	margin-right: 14rpx;
 	color: #fff;
 	font-size: 28rpx;
+}
+.offer_now{
+	margin: 0 auto;
+	width: 500rpx;
+}
+.offer_now button{
+	border-radius: 36rpx;
+	font-size: 30rpx;
+	line-height: 80rpx;
+	height: 80rpx;
+	background-color: #00aef4;
+	color: #fff;
 }

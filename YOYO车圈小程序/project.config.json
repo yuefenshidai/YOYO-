@@ -28,8 +28,13 @@
 			"list": []
 		},
 		"miniprogram": {
+
 			"current": 6,
+
+
+
 			"list": [
+
 				{
 					"id": -1,
 					"name": "车价评估",
@@ -71,6 +76,49 @@
 					"name": "订单",
 					"pathName": "pages/order/order"
 				}
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			]
 		}
 	}

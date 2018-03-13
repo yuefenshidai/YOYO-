@@ -36,7 +36,10 @@
                 "illegal/child/illegal_result/illegal_result",
                 "illegal/child/illegal_add/illegal_add",
 "illegal/child/illegal_result_detail/illegal_result_detail",
-				"evaluation/child/Vehiclebrand/Vehiclebrand"
+                "evaluation/child/Vehiclebrand/Vehiclebrand",
+                "evaluation/child/Vehiclemodel/Vehiclemodel",
+"evaluation/child/Vehiclemodel-next/Vehiclemodel-next",
+            "evaluation/child/evaluation_result/evaluation_result"
             ]
         },
         {

@@ -1,0 +1,6 @@
+{
+	"backgroundColor": "#2e3f63",
+	"usingComponents": {
+		"Ecanvas": "../components/ec-canvas/ec-canvas"
+	}
+}

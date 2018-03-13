@@ -1,0 +1,5 @@
+{
+		"usingComponents": {
+			"Vehiclebrand_List": "../components/Vehiclebrand_List/Vehiclebrand_List"
+		}
+}
