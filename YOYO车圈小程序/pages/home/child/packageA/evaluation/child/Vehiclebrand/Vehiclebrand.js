@@ -17,6 +17,7 @@ Page({
   onLoad: function (options) {
 	  this.CreatList()
   },
+
   //获取品牌列表
   CreatList(){
 	  let List = Brand.carbrand.result, result = [],  idx=0

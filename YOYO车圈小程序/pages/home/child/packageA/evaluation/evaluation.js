@@ -41,7 +41,7 @@ Page({
 			  timingFunc: 'easeIn'
 		  }
 	  })
-
+	  
 	  //获取时间
 	  let date = new Date()
 	  let evaluations = this.data.evaluations
@@ -176,4 +176,5 @@ Page({
 		if (!evaluations.chooseBrand.id) result = '还没有选择车型'
 		return result
 	}
+
 })

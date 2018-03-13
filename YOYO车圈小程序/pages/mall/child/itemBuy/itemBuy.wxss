@@ -1,1 +1,254 @@
 /* pages/mall/child/itemBuye/itemBuye.wxss */
+
+view {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 750rpx;
+  box-sizing: border-box;
+  background: white;
+}
+
+.itemBuye_container {
+  width: 750rpx;
+  background: #f7f7f7;
+}
+
+.itemBuye_container .now_point_container {
+  color: rgb(51, 51, 51);
+  background: rgb(255, 229, 174);
+  font-size: 22rpx;
+  padding-left: 30rpx;
+  line-height: 50rpx;
+}
+
+.itemBuye_container .receiving_address {
+  width: 100%;
+  padding: 25rpx 30rpx;
+  position: relative;
+  border-bottom: 8rpx solid transparent;
+  border-image-source: url('http://www.happyinstallment.com/app/image/order-list-mall/addressWrap-bottom.png');
+  border-image-outset: 0;
+  border-image-repeat: stretch stretch;
+  border-image-slice: 30 50;
+  border-image-width: 1;
+}
+
+.itemBuye_container .receiving_address view {
+  width: 100%;
+  line-height: 48rpx;
+}
+
+.itemBuye_container .receiving_address view text {
+  font-size: 26rpx;
+  color: rgb(51, 51, 51);
+}
+
+.itemBuye_container .receiving_address .top {
+  margin-top: -10rpx;
+}
+
+.itemBuye_container .receiving_address .top .tel {
+  margin-left: 20rpx;
+}
+
+.itemBuye_container .receiving_address .bottom {
+}
+
+.itemBuye_container .receiving_address .show_more_address {
+  position: absolute;
+  /* display: none; */
+  width: 20rpx;
+  height: 37rpx;
+  top: 50rpx;
+  right: 30rpx;
+}
+
+.itemBuye_container .receiving_address .show_more_address image {
+  width: 100%;
+  height: 100%;
+}
+
+.itemBuye_container .goods_info {
+  padding: 30rpx;
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+}
+
+.itemBuye_container .goods_info::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.itemBuye_container .goods_info>view {
+  float: left;
+}
+
+.itemBuye_container .goods_info .img {
+  width: 120rpx;
+}
+
+.itemBuye_container .goods_info .img image {
+  width: 120rpx;
+  height: 108rpx;
+}
+
+.itemBuye_container .goods_info .title {
+  width: 560rpx;
+  line-height: 26rpx;
+}
+
+.itemBuye_container .goods_info .title .top {
+  margin-bottom: 22rpx;
+  width: 100%;
+}
+
+.itemBuye_container .goods_info .title text {
+  font-size: 26rpx;
+  color: rgb(106, 106, 106);
+}
+
+.itemBuye_container .goods_info .title text.point {
+  color: rgb(255, 132, 110);
+  margin-right: 8rpx;
+}
+
+.itemBuye_container .choice_number {
+  height: 80rpx;
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+}
+
+.itemBuye_container .choice_number>text {
+  font-size: 26rpx;
+  color: rgb(106, 106, 106);
+  display: inline-block;
+  line-height: 80rpx;
+}
+
+.itemBuye_container .choice_number>view {
+  float: right;
+  width: 200rpx;
+  height: 60rpx;
+  margin-top: 10rpx;
+}
+
+.itemBuye_container .choice_number>view view {
+  height: 100%;
+  width: 60rpx;
+  float: left;
+}
+
+.itemBuye_container .choice_number>view view image {
+  width: 100%;
+  height: 100%;
+}
+
+.itemBuye_container .choice_number .reduce {
+  background: rgb(221, 221, 221);
+}
+
+.itemBuye_container .choice_number .npt {
+  width: 80rpx;
+}
+
+.itemBuye_container .choice_number .npt input {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #F6F6F6;
+}
+
+.itemBuye_container .choice_number .add {
+  background: rgb(255, 124, 94);
+}
+
+.itemBuye_container .use_point{
+
+  
+}
+
+.itemBuye_container .use_point>view{
+  text-align: right;
+   width: 180rpx; 
+   padding-left: 24rpx;
+}
+
+.itemBuye_container .use_point .point text{
+  display: inline-block;
+   line-height: 60rpx; 
+   width: 100%;
+   padding-left: 10rpx;
+   color: rgb(187, 187, 187);
+}
+
+.itemBuye_container .ready_money{
+  border: none;
+  margin-bottom: 20rpx;
+}
+
+.itemBuye_container .ready_money>view{
+  color:rgb(255, 124, 94);
+  text-align: right;
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+.itemBuye_container .coupon{
+
+}
+
+.itemBuye_container .coupon>view{
+  /* background: chartreuse; */
+  padding-left: 60rpx;
+}
+
+.itemBuye_container .coupon>view .text{
+  width: auto;
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+.itemBuye_container .coupon>view .img{
+  width: 16rpx;
+  height: 30rpx;
+  margin-left: 30rpx;
+  margin-top: 4rpx;
+}
+
+.itemBuye_container .coupon>view .img image{
+  width: 100%;
+  height: 100%;
+}
+
+.itemBuye_container .pay_order{
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-left: 30rpx;
+}
+
+.itemBuye_container .pay_order .pay_money{
+  float: left;
+  width: 300rpx;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  color:rgb(255, 124, 94);
+  
+}
+
+.itemBuye_container .pay_order .pay_now{
+  float: right;
+  width: 220rpx;
+  background: rgb(255, 124, 94);
+  line-height: 100rpx;
+  text-align: center;
+  color: white;
+
+}
+
+
+
