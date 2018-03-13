@@ -1,22 +1,160 @@
-.controls {
-  position: relative;
-  top: 50%;
-  height: 50px;
-  margin-top: -25px;
-  display: flex;
-}
-.play,.pause,.time {
-  flex: 1;
+page {
   height: 100%;
+  
 }
-.time {
+
+view {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 750rpx;
+  box-sizing: border-box;
+}
+
+.order_container {
+  height: 100%;
+  width: 750rpx;
+  background: #f7f7f7;
+  overflow: hidden;
+  padding-bottom: 96rpx;
+}
+
+.order_container .order_head {
+  height: 80rpx;
+  width: 100%;
+  position: relative;
+  padding-top: 15rpx;
+  margin-bottom: 20rpx;
+  background: white;
+}
+
+.order_container .order_head text {
+  display: inline-block;
+  width: 375rpx;
   text-align: center;
-  background-color: rgba(0, 0, 0, .5);
-  color: white;
-  line-height: 50px;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
 }
-.img {
-  width: 40px;
-  height: 40px;
-  margin: 5px auto;
+
+.order_container .order_head .move_border {
+  position: absolute;
+  width: 375rpx;
+  bottom: 0;
+  left: 0;
+  height: 1rpx;
+  transition: left 200ms ease-out;
+  background: rgb(255, 124, 94);
+}
+
+.order_container swiper {
+    height: 100%;
+}
+
+.order_container swiper swiper-item {
+  width: 100%;
+  /* height: 600rpx; */
+}
+
+.order_container .order_insurance {
+
+}
+
+.order_container .order_mall {
+  
+}
+
+.order_container .order_insurance .have_no_i_order,
+.order_container .order_mall .have_no_m_order {
+  display: block;
+  font-size: 16rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.order_insurance_gorunp, order_mall_gorunp {
+  width: 100%;
+}
+
+.order_insurance_gorunp .order_insurance_item {
+}
+
+.order_insurance_gorunp .order_insurance_item ,.order_mall_gorunp .order_mall_item {
+  background: white;
+  margin-bottom: 20rpx;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_top {
+  padding: 30rpx;
+  width: 100%;
+  position: relative;
+  border-bottom: 1rpx solid rgb(231, 231, 231);
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_top::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_top .img {
+  float: left;
+  width: 120rpx;
+  height: 123rpx;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_top .img image {
+  width: 120rpx;
+  height: 108rpx;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_top .text {
+  float: left;
+  width: 520rpx;
+  padding-left: 20rpx;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_top .text .title {
+  width: 100%;
+  font-size: 26rpx;
+  color: rgb(106, 106, 106);
+  word-break: break-all;
+  word-wrap: break-word;
+  line-height: 34rpx;
+  margin-bottom: 15rpx;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_top .pay_or_not {
+  position: absolute;
+  width: 116rpx;
+  height: 100rpx;
+  right: 30rpx;
+  bottom: 15rpx;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_top .pay_or_not image {
+  width: 116rpx;
+  height: 100rpx;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_bottom {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 23rpx;
+  padding: 0 30rpx;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_bottom view {
+  float: left;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_bottom .left {
+  width: 260rpx;
+  line-height: 80rpx;
+}
+
+.order_mall_gorunp .order_mall_item .o_m_i_bottom .right {
+  width: 400rpx;
+  text-align: right;
 }

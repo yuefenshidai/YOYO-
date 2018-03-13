@@ -33,18 +33,26 @@
   <view class='choice_number'>
     <text>数量</text>
     <view>
-      <view class='reduce' bindtap='addOrReduceGoodsNum' data-buy_type='reduce'><image src='./img/minus.png'></image></view>
-      <view class='npt'><input type='number' value='{{ buy_num }}' bindinput='addOrReduceGoodsNum' data-buy_type='npt'></input></view>
-      <view class='add' bindtap='addOrReduceGoodsNum'  data-buy_type='add'><image src='./img/plus.png'></image></view>
+      <view class='reduce' bindtap='addOrReduceGoodsNum' data-buy_type='reduce'>
+        <image src='./img/minus.png'></image>
+      </view>
+      <view class='npt'>
+        <input type='number' value='{{ buy_num }}' bindinput='addOrReduceGoodsNum' data-buy_type='npt'></input>
+      </view>
+      <view class='add' bindtap='addOrReduceGoodsNum' data-buy_type='add'>
+        <image src='./img/plus.png'></image>
+      </view>
     </view>
   </view>
   <view class='choice_number use_point'>
     <text>使用积分</text>
     <view>
-       <view class='npt'><input type='number' value='{{ use_point }}' bindinput='changeUsePoint'></input></view>
-       <view class='point'>
-          <text>积分</text>
-       </view>
+      <view class='npt'>
+        <input type='number' value='{{ use_point }}' bindinput='changeUsePoint'></input>
+      </view>
+      <view class='point'>
+        <text>积分</text>
+      </view>
     </view>
   </view>
   <view class='choice_number ready_money'>
@@ -59,13 +67,33 @@
       <view class='text'>
         <text>不可用</text>
       </view>
-      <view class='img'>  
+      <view class='img'>
         <image src='http://www.happyinstallment.com/app/image/mall-order-confirm/rightarrow.png'></image>
       </view>
     </view>
   </view>
   <view class='pay_order'>
     <view class='pay_money'>{{ buy_num*price_now-use_point }}元</view>
-    <view class='pay_now'>支付订单</view>
+    <view class='pay_now' bindtap='creatOrder'>支付订单</view>
   </view>
+
+
+
+  <view class='wei_xin_pay {{ show_flag == true ? "show" : "" }}'>
+    <view class='wei_xin_pay_head'>
+      选择支付方式
+      <image src='http://www.happyinstallment.com/app/image/mall-detail/close.png' bindtap='closePayWin'></image>
+    </view>
+    <view class='wei_xin_bottom'>
+      <view class='img'>
+        <image src='http://www.happyinstallment.com/app/image/Pyment1/wechatpay.png'></image>
+      </view>
+      <view class='wei_pay' bindtap='choicePay' data-pay_type='8'>
+        <text style='height:50rpx;font-size: 26rpx; line-height : 50rpx;'>微信支付</text>
+        <text style='height:20rpx; font-size:22rpx; line-height : 20rpx;'>推荐已安装微信客户端的用户使用       </text>
+      </view>
+    </view>
+  </view>
+
+  <view class='shade {{ show_flag == true ? "show" : "" }}'></view>
 </view>

@@ -34,6 +34,7 @@ Page({
     receive_tel: '',  //收货人的电话
     receive_city: '', //收货人的地区
     receive_region: '',  //收货人的详细地址
+    receive_id: ''  //收货地址的id
   },
 
   /**
@@ -54,7 +55,7 @@ Page({
       citys: address.citys[id],
       areas: address.areas[address.citys[id][0].id],
     })
-    console.log(this.data)
+    this.getEditAddress(options);
   },
 
   // 执行动画
@@ -71,22 +72,17 @@ Page({
       animationData: this.animation.export(),
       isVisible: isShow
     })
-    console.log(that.data)
   },
   // 选择状态按钮
   selectState: function (e) {
-    console.log('selectState1')
     this.startAnimation(false, -200)
     var status = e.currentTarget.dataset.status
     this.setData({
       status: status
     })
-    console.log(this.data)
-
   },
   // 日志选择
   bindDateChange: function (e) {
-    console.log(e)
     if (e.currentTarget.dataset.type == 1) {
       this.setData({
         begin: e.detail.value
@@ -187,12 +183,10 @@ Page({
     })
   },
   hideCitySelected: function (e) {
-    console.log(e)
     this.startAddressAnimation(false)
   },
   // 处理省市县联动逻辑
   cityChange: function (e) {
-    console.log(e)
     var value = e.detail.value
     var provinces = this.data.provinces
     var citys = this.data.citys
@@ -218,7 +212,6 @@ Page({
         value: [provinceNum, cityNum, countyNum]
       })
     }
-    console.log(this.data)
   },
 
   //信息输入
@@ -255,12 +248,62 @@ Page({
 
   //提交收货地址信息
   submitAddress() {
+    let this_ = this;
     let d = this.data;
     if (d.receive_name != '' && d.receive_tel != '' && d.receive_city != '' && d.receive_region != '') {
-      ajax.GET('BMemberService/saveUserAddress',{
-        
+      ajax.GET('BMemberService/saveUserAddress', {
+        aname: d.receive_name,
+        aphone: d.receive_tel,
+        bUseraddressid: d.receive_id,
+        isdefaultads: 1,
+        region: d.receive_city,
+        address: d.receive_region
+      }).then((res) => {
+        if (d.receive_id != '') {
+          wx.showToast({
+            title: '地址修改成功',
+            success() {
+              this_.goAddressList();
+            }
+          })
+        } else {
+          wx.showToast({
+            title: '地址添加成功',
+            success() {
+              this_.goAddressList();
+            }
+          })
+        }
       });
     }
+  },
 
+  //跳转收货地址列表页
+  goAddressList(){
+    setTimeout(()=>{
+      wx.navigateBack();
+    },1500);
+  },
+
+  //获取要修改的收货地址信息
+  getEditAddress(o) {
+    let e_id = o.edit_id;
+    let this_ = this;
+    if (e_id != '') {
+      this.setData({
+        receive_id: e_id
+      });
+      ajax.GET('BMemberService/getUserAddress', {
+        bUseraddressid: e_id
+      }).then((res) => {
+        let address_data = res.data[0];
+        this_.setData({
+          receive_name: address_data.aname,  //收货人的姓名
+          receive_tel: address_data.aphone,  //收货人的电话
+          receive_city: address_data.region, //收货人的地区
+          receive_region: address_data.address,  //收货人的详细地址
+        });
+      });;
+    }
   }
 })

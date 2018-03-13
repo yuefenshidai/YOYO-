@@ -9,12 +9,12 @@ Page({
    */
   data: {
     mall_img_url: '',   //商城图片从服务器获取路径
-    url_root: '',   //
+    // url_root: '',   //
     pro_title: '',  //产品的标题
     pro_img: '',  //产品banner图
     pro_id: '',  //产品的id
-    sku_id: '',  //产品详情id
-    goods_arr: [],  //不同型号的产品数组
+    // sku_id: '',  //产品详情id
+    // goods_arr: [],  //不同型号的产品数组
     goods_introduce: '', // 产品介绍
     open_choice_type_flag: false,   //型号选择打开与隐藏  true 打开
     show_good: '',   //显示的产品型号
@@ -30,8 +30,13 @@ Page({
       address: '',  //详细地址
       region: '',  //地区
       tel: '', //收件人点话
-      address_id : ''
-    }
+      address_id: ''  //地址id
+    },
+    show_flag: false,   //遮罩与支付弹窗显示标记
+    order_info: '',   //点单信息
+    membercoupons: { //优惠券
+      id: ''
+    },
   },
 
   /**
@@ -49,6 +54,7 @@ Page({
       this_.getAddress();
       this_.getPoint();
       this_.initialOrderData(wx.getStorageSync('want_to_buy'));
+      this_.goHearFroMmemberCoupons(options);
     });
   },
 
@@ -56,7 +62,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -193,7 +199,7 @@ Page({
           address: address_da.address,  //详细地址
           region: address_da.region,  //地区
           tel: address_da.aphone, //收件人点话
-          address_id : address_da.bUseraddressid  //收货地址的id
+          address_id: address_da.bUseraddressid  //收货地址的id
         }
       });
     });
@@ -204,5 +210,138 @@ Page({
     wx.navigateTo({
       url: '../../child/address/address',
     })
-  }
+  },
+
+  //生成订单
+  creatOrder() {
+    let da = this.data;
+    let this_ = this;
+    ajax.GET('TUserOrderService/SaveShopOrder', {
+      shopNum: da.buy_num,
+      shopId: da.pro_id
+    }).then(res => {
+      wx.showToast({
+        title: '订单生成成功',
+      });
+      this_.setData({
+        show_flag: true,
+        order_info: res.data
+      });
+    });
+  },
+
+  //关闭支付弹窗
+  closePayWin() {
+    this.setData({
+      show_flag: false
+    });
+  },
+
+  //选择微信支付
+  choicePay(e) {
+    let this_ = this;
+    let data = this.data;
+    let APP_URL = getApp().globalData.APP_URL;
+    let paytype = e.currentTarget.dataset.pay_type;
+    ajax.GET('TUserOrderService/payShopOrder', {
+      orderid: data.order_info.myOrder.tUserorderid,   //订单id
+      useraddressid: data.ueser_address.address_id,  //地址id
+      shopNum: data.buy_num,   //购买件数
+      monney: data.price_now * data.buy_num,   //支付金额
+      payScore: data.use_point,  //使用的积分
+      membercouponsid: data.membercoupons.id,  //要优惠券的id
+      paytype: paytype, //支付方式 1分期 2支付宝 3微信 4银联5积分支付7积分+支付宝8积分+微信9积分+银联10积分+一网通
+    }).then(res1 => {
+      wx.showLoading({
+        title: '正在支付',
+      });
+      let res = res1.data;
+      if (res.resType == true) {
+        if (res.payType == 1) {
+          wx.navigateTo({
+            url: 'paySuccess.html?type=mall',
+          })
+        } else if (paytype == 10) {//如果是积分+一网通支付
+          console.log('用银联支付');
+          getCmbSign(res.myOrder.thirdorderno, APP_URL + "paytemp.html?type=10");
+          //调用第三方支付
+        } else if (paytype == 9) {
+          console.log('用这个9支付');
+          doUnionPay(res.myOrder.thirdorderno, APP_URL + "paytemp.html?type=9");
+        } else if (paytype == 8) {
+          console.log('将要用微信支付');
+          this_.doWweixinPay(res.myOrder.thirdorderno, APP_URL + 'paytemp.html?type=8');
+        }
+      } else {
+        wx.hideLoading();
+        wx.showToast({
+          title: '支付失败',
+        })
+      }
+    });
+  },
+
+  //从优惠券页面跳过来
+  goHearFroMmemberCoupons(o) {
+    if (typeof o.membercouponsid != 'undefined') {
+      this.setData({
+        membercoupons: { //优惠券
+          id: o.membercouponsid
+        },
+      });
+    }
+  },
+
+  //微信支付
+  doWweixinPay(thirdOrderNo, returnUrl) {
+    let url_root = getApp().globalData.url_root;
+    let this_ = this;
+    let openid = JSON.parse(wx.getStorageSync('yfsdmember')).wechatid; //openid
+    wx.request({
+      url: url_root + 'WeixinService/prePay',
+      data: {
+        returnUrl: returnUrl,
+        thirdOrderNo: thirdOrderNo,
+        tradeType: "JSAPI",
+        openid: openid
+      },
+      success(res) {
+        if (res.statusCode == 200) {
+          let data = res.data;
+          wx.requestPayment({
+            'timeStamp': data.timeStamp,
+            'nonceStr': data.nonceStr,
+            'package': data.package,
+            'signType': data.signType,
+            'paySign': data.paySign,
+            'success' :function (res){   //调用支付成功回调
+              console.log(res);
+              
+                wx.showToast({
+                  title: '支付成功',
+                  icon : 'success'
+                })
+            },
+            'fail' : function(){  //调用失败回调
+                wx.showToast({
+                  title: '支付失败',
+                })
+            },
+            'complete': function(){   //支付接口调用完毕回调
+
+            }
+          })
+          
+        } else {
+          wx.hideLoading();
+          wx.showToast({
+            title: '微信支付失败',
+            icon: 'none'
+          })
+        }
+      }
+    })
+  },
+
+
 })

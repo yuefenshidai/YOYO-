@@ -277,7 +277,8 @@ Page({
       pro_number: da.buy_num,//数量
       // pro_Integral: da.,//积分
       pro_stocknum: da.goods_max,//库存
-      pro_shopId: da.pro_id//商品ID
+      // pro_shopId: da.pro_id//商品ID
+      pro_shopId: da.sku_id
     }
     wx.setStorageSync('want_to_buy', want_to_buy);
     wx.navigateTo({

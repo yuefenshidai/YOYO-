@@ -1,10 +1,58 @@
-<swiper>
-    <swiper-item>
-		<import src="./temp/temp.wxml"/>
-		<template is="odd" data="{{text: '1'}}" />
+<view class='order_container'>
+  <view class='order_head'>
+    <text bindtap='tab' data-tab_index='0' style='border-right : 1rpx solid #E7E7E7'>保险订单</text>
+    <text bindtap='tab' data-tab_index='1'>商城订单</text>
+    <view class='move_border' style='left : {{ tab_index*375+"rpx" }}'></view>
+  </view>
+  <swiper duration='200' bindchange='tab' current='{{ tab_index }}'>
+    <swiper-item class='order_insurance' style='overflow-y: scroll;'>
+      <text class='have_no_i_order' wx:if='{{ insurance_order_arr.length == 0 }}'>没有订单</text>
+      <view class='order_insurance_gorunp' wx:if='{{ insurance_order_arr.length != 0 }}'>
+        <view class='order_insurance_item' wx:for='{{insurance_order_arr}}' wx:key='*this'>
+
+        </view>
+      </view>
     </swiper-item>
-	<swiper-item>
-		<import src="./temp/temp.wxml"/>
-		<template is="even" data="{{text: '2'}}"/>
+    <swiper-item class='order_mall' style='overflow-y: scroll;'>
+      <text class='have_no_m_order' wx:if='{{ mall_order_arr.length == 0 }}'>没有订单</text>
+      <view class='order_mall_gorunp' wx:if='{{ mall_order_arr.length != 0 }}'>
+        <view class='order_mall_item' wx:for='{{ mall_order_arr }}' wx:key='*this' bindtap='goOrderDetail' data-order_index='{{index}}'>
+          <view class='o_m_i_top'>
+            <view class='img'>
+              <image src='{{ item.img_url }}'></image>
+            </view>
+            <view class='text'>
+              <view class='title'>
+                {{ item.title }}
+              </view>
+              <view class='price'>
+                <text style='color:rgb(255, 132, 110);'>{{ item.price }}</text>
+                <text>积分</text>
+              </view>
+            </view>
+            <view class='pay_or_not'>
+              <!-- 1 待支付  2待发货 3待收货 4已完成 5已取消 -->
+              <!-- 未支付 -->
+              <image src='http://www.happyinstallment.com/app/image/order-list1/weizhifu.png' wx:if='{{ item.order_status == 1 }}'></image>
+              <!-- 未发货 -->
+              <image src='http://www.happyinstallment.com/app/image/order-list1/weifahuo.png' wx:if='{{ item.order_status == 2 }}'></image>
+              <!-- 已发货 -->
+              <image src='http://www.happyinstallment.com/app/image/order-list1/yifahuo.png' wx:if='{{ item.order_status == 3 }}'></image>
+              <!-- 已完成 -->
+              <image src='http://www.happyinstallment.com/app/image/order-list1/complate.png' wx:if='{{ item.order_status == 4 }}'></image>
+              <!-- 已取消 -->
+              <image src='http://www.happyinstallment.com/app/image/order-list1/yiquxiao.png' wx:if='{{ item.order_status == 5 }}'></image>
+            </view>
+          </view>
+          <view class='o_m_i_bottom'>
+            <view class='left' style='color:rgb(170, 170, 170);'>{{ item.order_creat_time }}</view>
+            <view class='right'>
+              <text style='color:rgb(51, 51, 51);'>共{{ item.good_num }}件商品 实付款:</text>
+              <text style='color:rgb(255, 124, 94);'>￥{{ item.pay_money }} </text>
+            </view>
+          </view>
+        </view>
+      </view>
     </swiper-item>
-</swiper>
+  </swiper>
+</view>
