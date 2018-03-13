@@ -1,3 +1,46 @@
-<!--pages/home/child/evaluation/evaluation.wxml-->
-<text>pages/home/child/evaluation/evaluation.wxml</text>
-<text>车价评估</text>
+<view class='evaluationWrap'>
+	<view class='evaluationWrap_Inner'>
+		<view class='carLogo'>
+			 <image src="{{choosedImg}}"></image> 
+		</view>
+		<view class='Inner_List'>
+			<view class='Inner_List_Title'>车辆估价</view>
+			<view class='Inner_List_content'>
+				<view class='Inner_List_contentItem flex'>
+					<text>车辆信息</text>
+					<text class='theSecond' bindtap='chooseCarBrand' data-type="{{isChoosed}}">{{evaluations.chooseBrand.name}}</text>
+					<image src='../image/entrance.png'></image>
+				</view>
+				<view class='Inner_List_contentItem flex'>
+					<text>注册日期</text>
+					<picker class='theSecond' mode = "date" fields="month" bindchange='dateChange' end="{{endTime}}" start="2000-01">
+						<text style='display:inline;'>{{evaluations.date}}</text>
+					</picker>
+				</view>
+				<view class='Inner_List_contentItem flex'>
+					<text>车辆用途</text>
+					<text class='theSecond' bindtap='carUseChange'>{{evaluations.carUse.name}}</text>
+					<image src='../image/entrance.png'></image>
+				</view>
+				<view class='Inner_List_contentItem flex'>
+					<text>车辆状况</text>
+					<text class='theSecond' bindtap='carStatusChange'>{{evaluations.carStatus.name}}</text>
+					<image src='../image/entrance.png'></image>
+				</view>
+				<view class='Inner_List_contentItem flex'>
+					<text>行驶里程</text>
+					<input class='theSecond' style='min-width:350rpx;'  placeholder='请输入行驶里程' type='digit' bindinput='driveLong' maxlength='3'></input>
+					<text>万公里</text>
+				</view>
+				<view class='Inner_List_contentItem flex'>
+					<text>购买价格</text>
+					<input class='theSecond' style='min-width:350rpx;' placeholder='请输入购车价格' type='digit' bindinput='buyPrice'  maxlength='4'></input>
+					<text>万元</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class='offer_now'>
+		<button  loading="{{offer_now_loading}}" bindtap='sureOff'> 开始估价 </button>
+</view>

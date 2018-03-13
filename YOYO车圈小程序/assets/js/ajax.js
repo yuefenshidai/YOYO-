@@ -25,19 +25,19 @@ const POST = (url,data)=> {
 	})
 }
 
-const GET = (url, data)=> {
+const GET = (url, data={})=> {
 	return new Promise(
 		(resolve, reject) => {
-			let _data = data||{}
+			// let _data = data||{}
 			let _url = null
 			let Info =wx.getStorageSync('yfsdmember')||false
 			if (Info) {
-				_data.userid = JSON.parse(Info).bMemberid || ''
+				data.userid = JSON.parse(Info).bMemberid || ''
 			}
 			_url = url.indexOf('http') != -1 ? url : getApp().globalData.url_root + url
 			wx.request({
 				url: _url,
-				data: _data,
+				data: data,
 				method: 'GET',
 				header: {
 					'content-type': 'application/json' // 默认值

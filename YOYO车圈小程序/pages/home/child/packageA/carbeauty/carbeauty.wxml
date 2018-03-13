@@ -8,6 +8,13 @@
 			<view class='rightInfoWrap'>
 				<view class='title'>{{item.shopname}}</view>
 				<view class='address'>{{item.shopaddress}}</view>
+				<wxs module="distan">
+					var calcDistan = function(distan){
+						return parseInt(distan*1000)
+					}
+					module.exports.calcDistan = calcDistan
+				</wxs>
+				<view class='distance'>{{distan.calcDistan(item.distance)}}米</view>
 			</view>
 		</view>
 		<view class='service_item_bottom flex'>

@@ -13,7 +13,7 @@ Page({
 		// menuView_List: [
 		// 	{ title: '买车险', icon: './img/maichexian.png', link: './child/insurance/insurance' }, { title: '查违章', icon: './img/chaweizhang.png', link: './child/packageA/illegal/illegal' }, { title: '办理赔', icon: './img/banlipei.png', link: './child/packageA/claim/claim' }, { title: '找救援', icon: './img/zhaojiuyuan.png', link: './child/packageA/rescue/rescue' }],
 		menuView_List: [
-			{ title: '买车险', icon: './img/maichexian.png', link: './child/insurance/insurance' }, { title: '查违章', icon: './img/chaweizhang.png', link: './child/packageA/illegal/illegal' }, { title: '车价评估', icon: './img/chejiapinggu.png', link: './child/packageA/evaluation/evaluation' }, { title: '维修保养', icon: './img/qicheweixiu.png', link: './child/packageA/carbeauty/carbeauty' }],
+			{ title: '买车险', icon: './img/maichexian.png', link: './child/insurance/insurance' }, { title: '查违章', icon: './img/chaweizhang.png', link: './child/packageA/illegal/child/illegal_add/illegal_add' }, { title: '车价评估', icon: './img/chejiapinggu.png', link: './child/packageA/evaluation/evaluation' }, { title: '维修保养', icon: './img/qicheweixiu.png', link: './child/packageA/carbeauty/carbeauty' }],
 		// menuView_List_s:[
 		// 	{ title: '汽车美容', icon: './img/xichemeirong.png', link: './child/packageA/carbeauty/carbeauty' }, { title: '维修保养', icon: './img/qicheweixiu.png', link: './child/packageA/carbeauty/carbeauty' }, { title: '车价评估', icon: './img/chejiapinggu.png', link: './child/packageA/evaluation/evaluation' }, { title: '年检代办', icon: './img/nianjiandaiban.png', link: './child/packageA/expedited/expedited' }
 		// ]
@@ -80,6 +80,7 @@ Page({
 	 * 请求首页商城数据
 	 */
 	getMallInfo(){
+		wx.showNavigationBarLoading()
 		let url = getApp().globalData.url_root 
 		wx.request({
 			url: url + 'TProductSkuService/getAllInteProd', 
@@ -88,6 +89,7 @@ Page({
 				limit: 6,
 			},
 			success:  res=> {
+				wx.hideNavigationBarLoading()
 				this.setData({
 					homeMallList:res.data.rows
 				})
@@ -99,6 +101,7 @@ Page({
 	 * 请求首页商城数据
 	 */
 	getNewList(){
+		wx.showNavigationBarLoading()
 		let url = getApp().globalData.url_root
 		wx.request({
 			url: url + 'TnewsService/getNewsByType',
@@ -108,6 +111,7 @@ Page({
 				type: 1
 			},
 			success: res => {
+				wx.hideNavigationBarLoading()
 				this.setData({
 					homeNewsList: res.data.rows
 				})

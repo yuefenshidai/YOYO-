@@ -1,1 +1,47 @@
 /* pages/home/child/illegal/illegal.wxss */
+page{
+	width: 100%;
+	height: 100%;
+	background-color: #f7f7f7;
+}
+.illegalList{
+	width: 100%;
+	padding-top: 20rpx;
+}
+.illegalList .illegalItem{
+	margin-bottom: 20rpx;
+	background-color: #fff;
+    padding:30rpx;
+    position: relative;
+	align-items: center;
+}
+.illegalItem .left_icon{
+	width: 95rpx;
+	flex:0 0 95rpx;
+	margin-right: 30rpx;
+}
+.illegalItem .middle_content{
+	flex: 1;
+}
+.illegalItem .middle_content .carnametitle{
+	font-size: 30rpx;
+	color: #6a6a6a;
+	margin-bottom: 10rpx;
+}
+.illegalItem .middle_content .queryDate{
+	color: #aaa;
+    font-size: 28rpx;
+}
+.illegalItem  .right_icon{
+	width: 20rpx;
+	flex:0 0 20rpx;
+}
+.illegalItem  .right_icon image{
+	width: 17rpx;
+	height: 30rpx;
+}
+.illegalItem .left_icon image {
+	width: 95rpx;
+	height: 95rpx;
+	vertical-align: middle;
+}

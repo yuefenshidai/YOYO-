@@ -1,0 +1,45 @@
+<view class="carNoWrap" hidden='{{Step!=1}}'>
+	<view class='carNo'>
+		<label class='flex'>
+			<text class='label'>车牌号</text>
+			<text class='zone'>川</text>
+			<image src='/pages/home/child/packageA/image/arr-bottom.png'></image>
+			<input auto-focus maxlength='6' bindinput='inputEvt' data-type='licenseNo' value='{{formData.licenseNo}}'></input>
+		</label>
+	</view>
+	<button class='nextStep' bindtap='nextStep'> 下一步 </button>
+</view>
+<view class='carInfoWrap'>
+	<view class='carInfoWrapItem'>
+		<view class='carInfoWrapItem_Inner flex'>
+			<text>车牌号</text>
+			<input placeholder='请输入车牌号' bindinput='inputEvt' data-type='licenseNo' value="{{formData.licenseNo}}" maxlength='6'></input>
+		</view>
+	</view>
+	<view class='carInfoWrapItem'>
+		 <view class='carInfoWrapItem_Inner flex'>
+				<text>车架号</text>
+				<input placeholder='请输入车架号' bindinput='inputEvt' data-type='Vin' value='{{formData.Vin}}'></input>
+		</view>
+	</view>
+	<view class='carInfoWrapItem'>
+		<view class='carInfoWrapItem_Inner flex'>
+			<text>发动机号</text>
+			<input placeholder='请输入发动机号' bindinput='inputEvt' data-type='engineNo' value='{{formData.engineNo}}'></input>
+		</view>
+	</view>
+	<view class='carInfoWrapItem'>
+		<view class='carInfoWrapItem_Inner flex'>
+			<text>注册日期</text>
+			<picker mode="date"  value='{{nowdate}}'  start="{{fromdate}}" end="{{nowdate}}"   style='width:200rpx;' wx:if="{{nowdate}}" bindchange="pikcerDateChange">
+				<view>{{nowdate}}</view>
+			</picker>
+		</view> 
+	</view>
+	<text hidden="{{!tips}}" class='tips'>*{{tips}}*</text>
+	<button class='nextStep' bindtap='sureSubmit' loading="{{sureLoading}}"> 确认 </button>
+</view>
+
+
+		
+		

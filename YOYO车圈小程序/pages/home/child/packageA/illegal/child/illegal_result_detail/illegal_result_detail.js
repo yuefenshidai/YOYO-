@@ -1,22 +1,20 @@
-// pages/home/child/illegal/illegal.js
-import ajax from '../../../../../assets/js/ajax.js'
-
+// pages/home/child/packageA/illegal/child/illegal_result_detail/illegal_result_detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-		List:[]
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-	  this.getMycarList()
-	  this.listen()
-  },	
+	  let Info = wx.getStorageSync('ViolationInfo')
+	  this.setData({ Info: Info, itemInfo: Info.data.violations[options.idx] })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -65,34 +63,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  getMycarList(){
-	  ajax.GET('BMemberService/getMyCarList').then(res => {
-		  this.setData({
-			  List:res.data
-		  })
-	  })
   }
-  ,
-  LinkToAdd(){
-	  wx.navigateTo({
-		  url: './child/illegal_add/illegal_add',
-	  })
-  },
-
-  LinkToResult(e){
-		console.log(e)
-	//   wx.navigateTo({
-	// 	  url: './child/illegal_result/illegal_result',
-	//   })
-  },
-
-  listen(){
-	  let app = getApp()
-	  app.listenEvt('added',res=>{
-		  console.log(res)
-	  })
-  }
-
 })

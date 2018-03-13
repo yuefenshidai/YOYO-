@@ -17,6 +17,14 @@
 .service_item_top  .rightInfoWrap{
 	flex: 1;
 	width: 540rpx;
+	position: relative;
+}
+.service_item_top  .rightInfoWrap .distance{
+	position: absolute;
+	font-size: 20rpx;
+	color: #333;
+	right: 0;
+	top: -10rpx;
 }
 .service_item_top  .leftIcon image{
 	width: 100%;

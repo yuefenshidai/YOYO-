@@ -1,3 +1,35 @@
 <!--pages/home/child/illegal/illegal.wxml-->
-<text>pages/home/child/illegal/illegal.wxml</text>
-<text>查违章</text>
+<view class='illegalList'>
+	<view class='illegalItem flex' wx:for="{{List}}" wx:key="{{item.carid}}" bindtap='LinkToResult' data-carInfo="{{item}}">
+			<view class='left_icon'>
+				<image src='../image/carIcon.png'></image>
+			</view>
+			<view class='middle_content'>
+				<view class='carnametitle'>
+					{{item.licenseNo}}
+				</view>
+				<wxs module="queryDate">
+					var queryDate = function(date){
+						return date.substring(0,10)
+					}
+					module.exports.queryDate = queryDate
+				</wxs>
+				<view class='queryDate'>
+					最近查询 {{queryDate.queryDate(item.lastQueryDate)}}
+				</view>
+			</view>
+			<view class='right_icon'>
+				<image src='../image/right-icon-join.png'></image>
+			</view>
+	</view>
+	<view class='illegalItem flex add' bindtap='LinkToAdd'>
+			<view class='left_icon'>
+				<image src='../image/add.png'></image>
+			</view>
+			<view class='middle_content'>
+				<view class='carnametitle'>
+					添加车辆
+				</view>
+			</view>
+	</view>
+</view>

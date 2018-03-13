@@ -1,0 +1,75 @@
+page{
+	width: 100%;
+	height: 100%;
+	background-color: #2e3f63;
+}
+.bgimg{
+	width: 100%;
+	height: 100%;
+}
+.bgimg image{
+	width: 100%;
+	height: 100%;
+}
+.posContent{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+}
+.result_carInfo{
+	padding: 30rpx;
+	margin-bottom: 20rpx;
+}
+.result_carInfo .carlogo{
+	width: 140rpx;
+	height: 140rpx;
+	flex: 0 0 140rpx;
+	border-radius: 10rpx;
+	background-color: #fff;
+	margin-right: 40rpx;
+}
+.result_carInfo .carlogo image {
+	width: 100%;
+	height: 100%;
+}
+.result_carInfo .carinfo {
+	flex:1;
+	color: #fff;
+	line-height: 1;
+}
+.result_carInfo .carinfo .carname{
+	height: 99rpx;
+	font-size: 26rpx;
+	line-height: 32rpx;
+	margin-bottom: 20rpx;
+}
+.result_carInfo .carinfo .newcarprice{
+	font-size: 24rpx;
+	margin-bottom: 30rpx;
+}
+.result_carInfo .carinfo .carinfoWrap{
+	font-size: 22rpx;
+	line-height: 22rpx;
+	align-items: center;
+}
+.result_carInfo .carinfo .carinfoWrap text{
+	font-size: 22rpx;
+}
+.result_carInfo .carinfo .carinfoWrap image {
+	width: 20rpx;
+	height: 20rpx;
+	vertical-align: top;
+	margin-right: 10rpx;
+}
+.result_carInfo .carinfo .carinfoWrap view {
+	margin-right: 40rpx;
+}
+.result_reference {
+	padding:  0 30rpx;
+	color: #fff;
+}
+.result_reference .reference_title{
+	font-size: 28rpx;
+}

@@ -115,5 +115,13 @@ Page({
 	wx.makePhoneCall({
 		phoneNumber: phone 
 	})
+  },
+  gps(e){
+	  let gcj02 = callBaiduLocation.bd09togcj02(e.currentTarget.dataset.x, e.currentTarget.dataset.y)
+	  wx.openLocation({
+		  latitude: gcj02[1],
+		  longitude: gcj02[0],
+		  scale: 28
+	  })
   }
 })
