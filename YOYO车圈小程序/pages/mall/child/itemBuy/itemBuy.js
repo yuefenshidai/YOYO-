@@ -262,14 +262,11 @@ Page({
             url: 'paySuccess.html?type=mall',
           })
         } else if (paytype == 10) {//如果是积分+一网通支付
-          console.log('用银联支付');
           getCmbSign(res.myOrder.thirdorderno, APP_URL + "paytemp.html?type=10");
           //调用第三方支付
         } else if (paytype == 9) {
-          console.log('用这个9支付');
           doUnionPay(res.myOrder.thirdorderno, APP_URL + "paytemp.html?type=9");
         } else if (paytype == 8) {
-          console.log('将要用微信支付');
           this_.doWweixinPay(res.myOrder.thirdorderno, APP_URL + 'paytemp.html?type=8');
         }
       } else {
@@ -315,8 +312,6 @@ Page({
             'signType': data.signType,
             'paySign': data.paySign,
             'success' :function (res){   //调用支付成功回调
-              console.log(res);
-              
                 wx.showToast({
                   title: '支付成功',
                   icon : 'success'

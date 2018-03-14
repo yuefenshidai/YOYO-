@@ -30,7 +30,7 @@ view {
 
 .order_container .order_head text {
   display: inline-block;
-  width: 375rpx;
+  width: 374rpx;
   text-align: center;
   height: 40rpx;
   line-height: 40rpx;

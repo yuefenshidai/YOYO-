@@ -268,7 +268,6 @@ Page({
 
   //跳转订单生成
   goSureOrder() {
-    console.log(this.data);
     let da = this.data;
     let want_to_buy = {
       pro_unit_Price: da.price_now,//单价

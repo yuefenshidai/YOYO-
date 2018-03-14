@@ -31,7 +31,7 @@
               </view>
             </view>
             <view class='pay_or_not'>
-              <!-- 1 待支付  2待发货 3待收货 4已完成 5已取消 -->
+              <!--0未确认 1 待支付  2待发货 3待收货 4已完成 5已取消 -->
               <!-- 未支付 -->
               <image src='http://www.happyinstallment.com/app/image/order-list1/weizhifu.png' wx:if='{{ item.order_status == 1 }}'></image>
               <!-- 未发货 -->
@@ -41,7 +41,7 @@
               <!-- 已完成 -->
               <image src='http://www.happyinstallment.com/app/image/order-list1/complate.png' wx:if='{{ item.order_status == 4 }}'></image>
               <!-- 已取消 -->
-              <image src='http://www.happyinstallment.com/app/image/order-list1/yiquxiao.png' wx:if='{{ item.order_status == 5 }}'></image>
+              <image src='http://www.happyinstallment.com/app/image/order-list1/yiquxiao.png' wx:if='{{ item.order_status == 0 }}'></image>
             </view>
           </view>
           <view class='o_m_i_bottom'>

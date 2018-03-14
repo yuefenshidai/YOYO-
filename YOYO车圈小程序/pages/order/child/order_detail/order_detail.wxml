@@ -1,0 +1,91 @@
+<!--pages/order/child/order_detail/order_detail.wxml-->
+
+<view class='order_detail_container'>
+  <view class='address_container'>
+    <view class='top'>
+      <text style='margin-right:20rpx;'>{{ show_order_info.o_address.name }}</text>
+      <text>{{ show_order_info.o_address.tel }}</text>
+    </view>
+    <view class='bottom'>
+      {{ show_order_info.o_address.regin }}
+    </view>
+  </view>
+  <view class='order_good_container'>
+    <view class='order_good_top'>
+      <view class='img'>
+        <image src='{{ show_order_info.o_good_info.img }}'></image>
+      </view>
+      <view class='text'>
+        <view class='title'>{{ show_order_info.o_good_info.title }}</view>
+        <view class='price'>
+          <text>{{ show_order_info.o_good_info.price }}</text>
+          <text>积分</text>
+        </view>
+      </view>
+    </view>
+    <view class='order_good_bottom'>
+      <view class='time'>{{ show_order_info.o_good_info.time }}</view>
+      <view class='money_num'>
+        <text class='good_num'>共1件商品 实付款:</text>
+        <text class='pay_money' style='color:rgb(255, 124, 94);'>￥{{ show_order_info.o_good_info.pay }}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='order_info_container'>
+    <view class='order_info'>
+      <text class='left'>快递</text>
+      <text class='right'>免费配送</text>
+    </view>
+    <view class='order_info'>
+      <text class='left'>付款方式</text>
+      <text class='right'>{{ show_order_info.o_order_info.pay_way }}</text>
+    </view>
+    <view class='order_info'>
+      <text class='left'>发货时间</text>
+      <text class='right'>{{ show_order_info.o_order_info.send_time }}</text>
+    </view>
+    <view class='order_info'>
+      <text class='left'>运单号</text>
+      <text class='right'>{{ show_order_info.o_order_info.air_way_bill_no }}</text>
+    </view>
+    <view class='order_info'>
+      <text class='left'>订单编号</text>
+      <text class='right'>{{ show_order_info.o_order_info.order_no }}</text>
+    </view>
+    <view class='order_status'>
+      <!--0未确认 1 待支付  2待发货 3待收货 4已完成 5已取消 -->
+      <!-- 已取消 -->
+      <image src='http://www.happyinstallment.com/app/image/order-list1/yiquxiao.png' wx:if='{{ show_order_info.o_order_info.order_status == 0 }}'></image>
+      <!-- 未支付 -->
+      <image src='http://www.happyinstallment.com/app/image/order-list1/weizhifu.png' wx:if='{{ show_order_info.o_order_info.order_status == 1 }}'></image>
+      <!-- 未发货 -->
+      <image src='http://www.happyinstallment.com/app/image/order-list1/weifahuo.png' wx:if='{{ show_order_info.o_order_info.order_status == 2 }}'></image>
+      <!-- 已发货 -->
+      <image src='http://www.happyinstallment.com/app/image/order-list1/yifahuo.png' wx:if='{{ show_order_info.o_order_info.order_status == 3 }}'></image>
+      <!-- 已完成 -->
+      <image src='http://www.happyinstallment.com/app/image/order-list1/complate.png' wx:if='{{ show_order_info.o_order_info.order_status == 4 }}'></image>
+
+    </view>
+  </view>
+  <view class='pay_now' wx:if='{{ show_order_info.o_order_info.order_status == 1 }}' bindtap='showPayWay'>立即支付</view>
+  <!-- <view class='receive_good' wx:if='{{ show_order_info.o_order_info.order_status == 2 }}' bindtap='sureReceive'>确认收货</view> -->
+
+  <view class='wei_xin_pay {{ show_flag == true ? "show" : "" }}'>
+    <view class='wei_xin_pay_head'>
+      选择支付方式
+      <image src='http://www.happyinstallment.com/app/image/mall-detail/close.png' bindtap='closePayWin'></image>
+    </view>
+    <view class='wei_xin_bottom'>
+      <view class='img'>
+        <image src='http://www.happyinstallment.com/app/image/Pyment1/wechatpay.png'></image>
+      </view>
+      <view class='wei_pay' bindtap='choicePay' data-pay_type='8'>
+        <text style='height:50rpx;font-size: 26rpx; line-height : 50rpx;'>微信支付</text>
+        <text style='height:20rpx; font-size:22rpx; line-height : 20rpx;'>推荐已安装微信客户端的用户使用       </text>
+      </view>
+    </view>
+  </view>
+
+  <view class='shade {{ show_flag == true ? "show" : "" }}'></view>
+</view>
