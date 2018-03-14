@@ -158,69 +158,72 @@ view {
   text-align: center;
   height: 60rpx;
   line-height: 60rpx;
-  background: #f6f6f6;
+  background: #F6F6F6;
 }
 
 .itemBuye_container .choice_number .add {
   background: rgb(255, 124, 94);
 }
 
-.itemBuye_container .use_point {
+.itemBuye_container .use_point{
+
+  
 }
 
-.itemBuye_container .use_point>view {
+.itemBuye_container .use_point>view{
   text-align: right;
-  width: 180rpx;
-  padding-left: 24rpx;
+   width: 180rpx; 
+   padding-left: 24rpx;
 }
 
-.itemBuye_container .use_point .point text {
+.itemBuye_container .use_point .point text{
   display: inline-block;
-  line-height: 60rpx;
-  width: 100%;
-  padding-left: 10rpx;
-  color: rgb(187, 187, 187);
+   line-height: 60rpx; 
+   width: 100%;
+   padding-left: 10rpx;
+   color: rgb(187, 187, 187);
 }
 
-.itemBuye_container .ready_money {
+.itemBuye_container .ready_money{
   border: none;
   margin-bottom: 20rpx;
 }
 
-.itemBuye_container .ready_money>view {
-  color: rgb(255, 124, 94);
+.itemBuye_container .ready_money>view{
+  color:rgb(255, 124, 94);
   text-align: right;
   font-size: 28rpx;
   line-height: 60rpx;
 }
 
-.itemBuye_container .coupon {
+.itemBuye_container .coupon{
+
 }
 
-.itemBuye_container .coupon>view {
+.itemBuye_container .coupon>view{
   /* background: chartreuse; */
   padding-left: 60rpx;
 }
 
-.itemBuye_container .coupon>view .text {
+.itemBuye_container .coupon>view .text{
   width: auto;
   font-size: 28rpx;
   line-height: 60rpx;
 }
 
-.itemBuye_container .coupon>view .img {
+.itemBuye_container .coupon>view .img{
   width: 16rpx;
   height: 30rpx;
   margin-left: 30rpx;
   margin-top: 4rpx;
 }
 
-.itemBuye_container .coupon>view .img image {
+.itemBuye_container .coupon>view .img image{
   width: 100%;
   height: 100%;
 }
 
-.itemBuye_container .pay_order {
+.itemBuye_container .pay_order{
   height: 100rpx;
   position: fixed;
   bottom: 0;
@@ -228,103 +231,24 @@ view {
   padding-left: 30rpx;
 }
 
-.itemBuye_container .pay_order .pay_money {
+.itemBuye_container .pay_order .pay_money{
   float: left;
   width: 300rpx;
   line-height: 100rpx;
   font-size: 40rpx;
-  color: rgb(255, 124, 94);
+  color:rgb(255, 124, 94);
+  
 }
 
-.itemBuye_container .pay_order .pay_now {
+.itemBuye_container .pay_order .pay_now{
   float: right;
   width: 220rpx;
   background: rgb(255, 124, 94);
   line-height: 100rpx;
   text-align: center;
   color: white;
+
 }
 
-.wei_xin_pay {
-  position: fixed;
-  display: none;
-  bottom: 0;
-  height: 270rpx;
-  width: 100%;
-  padding: 30rpx;
-  z-index: 30;
-}
 
-.wei_xin_pay.show {
-  display: block;
-}
 
-.wei_xin_pay .wei_xin_pay_head {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  font-size: 28rpx;
-  height: 40rpx;
-  line-height: 40rpx;
-  margin-bottom: 40rpx;
-}
-
-.wei_xin_pay .wei_xin_pay_head image {
-  position: absolute;
-  width: 20rpx;
-  height: 20rpx;
-  top: 10rpx;
-  right: 60rpx;
-}
-
-.wei_xin_pay .wei_xin_bottom {
-  padding: 20rpx 30rpx;
-  width: 100%;
-  border-bottom: 1rpx solid rgb(231, 231, 231);
-}
-
-.wei_xin_pay .wei_xin_bottom::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-.wei_xin_pay .wei_xin_bottom>view {
-  float: left;
-}
-
-.wei_xin_pay .wei_xin_bottom .img {
-  width: 60rpx;
-  height: 60rpx;
-  margin-right: 40rpx;
-  padding-top: 10rpx;
-}
-
-.wei_xin_pay .wei_xin_bottom .img image {
-  width: 60rpx;
-  height: 60rpx;
-}
-
-.wei_xin_pay .wei_xin_bottom .wei_pay {
-  width: 500rpx;
-}
-
-.wei_xin_pay .wei_xin_bottom .wei_pay text {
-  display: block;
-}
-
-.shade {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: none;
-  opacity: 0.3;
-  z-index: 20;
-  top: 0;
-  left: 0;
-}
-
-.shade.show {
-  display: block;
-}

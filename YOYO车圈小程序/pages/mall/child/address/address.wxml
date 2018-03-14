@@ -18,9 +18,9 @@
         </view>
         <view class='control edite'>
           <image src='http://www.happyinstallment.com/app/image/addressList/edit.png'></image>
-          <text bindtap='goAddOrChangeAddress' data-edit_id='{{ item.bUseraddressid }}' data-edit_index='{{ index }}'>编辑</text>
+          <text bindtap='goAddOrChangeAddress'>编辑</text>
         </view>
-        <view class='control delete' bindtap='deleteAddress' data-delete_id='{{ item.bUseraddressid }}' data-delete_index='{{ index }}'>
+        <view class='control delete' bindtap='deleteAddress' data-delete_id='{{ item.bUseraddressid }}' data-delete_index='{{ item.index }}'>
           <image src='http://www.happyinstallment.com/app/image/addressList/delete.png'></image>
           <text>删除</text>
         </view>
@@ -29,6 +29,6 @@
   </view>
   <view class='add_address'>
     <image src='http://www.happyinstallment.com/app/image/addressList/plus.png'></image>
-    <text bindtap='goAddOrChangeAddress'>添加地址</text>
+    <text>添加地址</text>
   </view>
 </view>

@@ -113,7 +113,6 @@ Page({
 
   //行驶里程监控
   driveLong(e){
-	  console.log(e)
 	  let evaluations = this.data.evaluations
 	  evaluations.driveLong= e.detail.value
 	  this.setData({
@@ -124,7 +123,6 @@ Page({
 
   //购买价格监控
 	buyPrice(e){
-		console.log(e)
 		let evaluations = this.data.evaluations
 		evaluations.buyPrice = e.detail.value
 		this.setData({

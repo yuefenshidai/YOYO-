@@ -37,7 +37,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.onLoad();
+
   },
 
   /**
@@ -115,33 +115,31 @@ Page({
     let id = e.currentTarget.dataset.delete_id;  //要删除的地址的id
     let index = e.currentTarget.dataset.delete_index;  //要删除地址在address_arr数组中的位置
     let this_ = this;
-    let addr_arr = this.data.address_arr;
     wx.showModal({
       title: '确认删除?',
       success(res) {
         if (res.confirm) {
           ajax.GET('BMemberService/delUserAddress', {
             bUseraddressid: id
-          }).then((res) => {
-            addr_arr.splice(index, 1)
+          }).then((res)=>{
             this_.setData({
-              address_arr: addr_arr
-            }, () => {
+              address_arr: this_.data.address_arr.splice(index,1)
             });
-          });
+          }); 
         }
       }
     });
+
+
   },
 
   //跳转编辑与新建地址信息页面
-  goAddOrChangeAddress(e) {
-    let id = e.currentTarget.dataset.edit_id;
+  goAddOrChangeAddress(){
     wx.navigateTo({
-      url: '../address_edit/address_edit?edit_id='+(id? id : ''),
+      url: '../address_edit/address_edit',
     })
   },
-
+  
 
 
   //跳转订单页面

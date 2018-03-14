@@ -4,16 +4,18 @@
 <view class='posContent'>
 	<view class='result_carInfo flex'>
 		<view class='carlogo'>
-			<image></image>
+			<!-- <image src="{{'http://www.happyinstallment.com/app/image/Vehiclebrand-images/' + optionsInfo.chooseBrand.imgid+'.jpg'}}"></image> -->
+			<image src="http://www.happyinstallment.com/app/image/Vehiclebrand-images/{{optionsInfo.chooseBrand.imgid}}.jpg"></image>
 		</view>
 		<view class='carinfo'>
-			<view class='carname'>阿尔法-罗密欧Giulia Quadrifoglio(进口) 2017款 2.9T 手自一体 510HP 四叶草版 2016款
+			<view class='carname'>
+				{{optionsInfo.chooseBrand.name}}
 			</view>
-			<view class='newcarprice'>新车指导价:333万元</view>
+			<view class='newcarprice'>新车指导价:</view>
 			<view class='carinfoWrap flex'>
 				<view>
 					<image src='http://www.happyinstallment.com/app/image/assess-result/time.png'></image>
-					<text>2017-01</text>
+					<text>{{optionsInfo.date}}</text>
 				</view>
 				<view>
 					<image src='http://www.happyinstallment.com/app/image/assess-result/position.png'></image>
@@ -21,21 +23,57 @@
 				</view>
 				<view>
 					<image src='http://www.happyinstallment.com/app/image/assess-result/odometer.png'></image>
-					<text>3万公里</text>
+					<text>{{optionsInfo.driveLong}}万公里</text>
 				</view>
 			</view>
 		</view>
 	</view>
 	<view class='result_reference'>
 		<view class='reference_title'>车辆参考价格</view>
-		<view class='reference_content'>
-			<view  id='shougoujia' style='height:500rpx;'>
-				<Ecanvas class="ec-canvas" canvas-id="shougoujia"
+		<view class='reference_content flex'>
+			<view   >
+				<view class='posWrap'>
+					<view>{{resultInfo.est_price_result[0]}}万元</view>
+					<text>车商收购价</text>
+				</view>
+				<Ecanvas class="ec-canvas" 
+					id='shougoujia'
 					ec="{{ec}}"
-					wx:if="{{ec.onInit}}">
+					>
+				</Ecanvas>
+			</view>
+			<view >
+				<view class='posWrap'>
+					<view>{{resultInfo.est_price_result[2]}}万元</view>
+					<text>个人交易价</text>
+				</view>
+				<Ecanvas class="ec-canvas" 
+					id='jiaoyijia'
+					ec="{{ec}}"
+					>
+				</Ecanvas>
+			</view>
+			<view   >
+				<view class='posWrap'>
+					<view>{{resultInfo.est_price_result[1]}}万元</view>
+					<text>车商卖出价</text>
+				</view>
+				<Ecanvas class="ec-canvas" 
+					id='maichujia'
+					ec="{{ec}}"
+					>
 				</Ecanvas>
 			</view>
 		</view>
 	</view>
-	<view class='result_linechart'></view>
+	<view class='result_linechart'>
+		<view class='linechart_title'>地区参考价格</view>
+		<view class='linechart_content'>
+			<Ecanvas class="ec-canvas" 
+					id='linechart'
+					ec="{{ec}}"
+					>
+				</Ecanvas>
+		</view>
+	</view>
 </view>
