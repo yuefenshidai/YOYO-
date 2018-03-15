@@ -243,6 +243,7 @@ Page({
     let data = this.data;
     let APP_URL = getApp().globalData.APP_URL;
     let paytype = e.currentTarget.dataset.pay_type;
+    let session_id = wx.getStorageSync('session_id');
     ajax.GET('TUserOrderService/payShopOrder', {
       orderid: data.order_info.myOrder.tUserorderid,   //订单id
       useraddressid: data.ueser_address.address_id,  //地址id
@@ -251,6 +252,7 @@ Page({
       payScore: data.use_point,  //使用的积分
       membercouponsid: data.membercoupons.id,  //要优惠券的id
       paytype: paytype, //支付方式 1分期 2支付宝 3微信 4银联5积分支付7积分+支付宝8积分+微信9积分+银联10积分+一网通
+      sessionId: session_id
     }).then(res1 => {
       wx.showLoading({
         title: '正在支付',

@@ -1,3 +1,4 @@
+import checkLogin from '../../assets/js/chekLogin.js'
 // pages/mall/mall.js
 Page({
 
@@ -38,6 +39,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    checkLogin.check();
     let app_goldble_data = getApp().globalData;
     let this_ = this;
     this.mall_img_url = app_goldble_data.mallImg_url;

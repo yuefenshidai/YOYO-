@@ -48,7 +48,8 @@
               data-saleprice='{{ item.saleprice }}' 
               data-saleintegral='{{ item.saleintegral }}' 
               data-stocknum='{{ stocknum }}'
-              bindtap='choiceType'>
+              bindtap='choiceType' 
+              wx:key='*this'>
           {{ item.pro_color+item.pro_edition }}
         </view>
       </view>

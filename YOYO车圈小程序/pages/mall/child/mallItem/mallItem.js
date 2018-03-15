@@ -1,3 +1,4 @@
+
 // pages/mall/child/mallItem/mallItem.js
 Page({
 
