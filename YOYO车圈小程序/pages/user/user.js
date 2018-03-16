@@ -9,10 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-		isLogin:false,
+		// isLogin:false,
 		getedInfo:null,
 		imgurl: getApp().globalData.img_url,
-		listBar:[{title:'我的资料',icon:'./image/ziliao.png',link:''},
+		listBar: [{ title: '我的资料', icon: './image/ziliao.png', link:'./child/myInfomation/myInfomation'},
 			{ title: '我的收藏', icon: './image/shoucang.png', link: '' },
 			{ title: '我的评论', icon: './image/pinglun.png', link: '' },
 			{ title: '我的消息', icon: './image/message.png', link: '' },
@@ -25,15 +25,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-	  let userInfo = wx.getStorageSync('yfsdmember')||false
-	  if (userInfo) {
-		  this.setData({ isLogin:true  })
-		  this.getUserInfo()
-	  }
-	  check.check()
-	  App.listenEvt('logined',(VAL)=>{
+	  check.check(this,()=>{
 		  this.getUserInfo()
 	  })
+	//   App.listenEvt('logined',(VAL)=>{
+	// 	  this.getUserInfo()
+	//   })
   },
 
   /**

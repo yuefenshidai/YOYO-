@@ -1,0 +1,3 @@
+<!--pages/user/child/myInfomation/myInfomation.wxml-->
+<text>我的资料</text>
+<view bindtap='loginout'>退出登陆</view>

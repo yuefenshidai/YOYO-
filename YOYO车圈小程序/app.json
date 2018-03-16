@@ -1,98 +1,99 @@
 {
-  "pages": [
-    "pages/home/home",
-    "pages/mall/mall",
-    "pages/news/news",
-    "pages/order/order",
-    "pages/user/user",
-    "pages/common/login/login",
-    "pages/news/child/detail/detail",
-    "pages/common/notLogin/notLogin"
-  ],
-  "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#ff7c5e",
-    "navigationBarTitleText": "YOYO车圈",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#f7f7f7",
-    "enablePullDownRefresh": false
-  },
-  "subPackages": [
-    {
-      "root": "pages/home/child/insurance",
-      "pages": [
-        "insurance"
-      ]
+    "pages": [
+        "pages/home/home",
+        "pages/mall/mall",
+        "pages/news/news",
+        "pages/order/order",
+        "pages/user/user",
+        "pages/common/login/login",
+        "pages/news/child/detail/detail",
+        "pages/common/notLogin/notLogin",
+        "pages/user/child/myInfomation/myInfomation"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#ff7c5e",
+        "navigationBarTitleText": "YOYO车圈",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#f7f7f7",
+        "enablePullDownRefresh": false
     },
-    {
-      "root": "pages/home/child/packageA",
-      "pages": [
-        "claim/claim",
-        "carbeauty/carbeauty",
-        "evaluation/evaluation",
-        "expedited/expedited",
-        "illegal/illegal",
-        "rescue/rescue",
-        "illegal/child/illegal_result/illegal_result",
-        "illegal/child/illegal_add/illegal_add",
-        "illegal/child/illegal_result_detail/illegal_result_detail",
-        "evaluation/child/Vehiclebrand/Vehiclebrand",
-        "evaluation/child/Vehiclemodel/Vehiclemodel",
-        "evaluation/child/Vehiclemodel-next/Vehiclemodel-next",
-        "evaluation/child/evaluation_result/evaluation_result"
-      ]
-    },
-    {
-      "root": "pages/mall/child",
-      "pages": [
-        "itemBuy/itemBuy",
-        "mallItem/mallItem",
-        "address/address",
-        "address_edit/address_edit"
-      ]
-    },
-    {
-      "root":"pages/order/child",
-      "pages":[
-        "order_detail/order_detail"
-      ]
+    "subPackages": [
+        {
+            "root": "pages/home/child/insurance",
+            "pages": [
+                "insurance"
+            ]
+        },
+        {
+            "root": "pages/home/child/packageA",
+            "pages": [
+                "claim/claim",
+                "carbeauty/carbeauty",
+                "evaluation/evaluation",
+                "expedited/expedited",
+                "illegal/illegal",
+                "rescue/rescue",
+                "illegal/child/illegal_result/illegal_result",
+                "illegal/child/illegal_add/illegal_add",
+                "illegal/child/illegal_result_detail/illegal_result_detail",
+                "evaluation/child/Vehiclebrand/Vehiclebrand",
+                "evaluation/child/Vehiclemodel/Vehiclemodel",
+                "evaluation/child/Vehiclemodel-next/Vehiclemodel-next",
+                "evaluation/child/evaluation_result/evaluation_result"
+            ]
+        },
+        {
+            "root": "pages/mall/child",
+            "pages": [
+                "itemBuy/itemBuy",
+                "mallItem/mallItem",
+                "address/address",
+                "address_edit/address_edit"
+            ]
+        },
+        {
+            "root": "pages/order/child",
+            "pages": [
+                "order_detail/order_detail"
+            ]
+        }
+    ],
+    "tabBar": {
+        "color": "#333",
+        "selectedColor": "#ff7c5e",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "./assets/img/tabbar/shouye-nav.png",
+                "selectedIconPath": "./assets/img/tabbar/shouye-nav-S.png"
+            },
+            {
+                "pagePath": "pages/mall/mall",
+                "text": "商城",
+                "iconPath": "./assets/img/tabbar/shangcheng-nav.png",
+                "selectedIconPath": "./assets/img/tabbar/shangcheng-nav-S.png"
+            },
+            {
+                "pagePath": "pages/order/order",
+                "text": "订单",
+                "iconPath": "./assets/img/tabbar/dingdan-nav.png",
+                "selectedIconPath": "./assets/img/tabbar/dingdan-nav-S.png"
+            },
+            {
+                "pagePath": "pages/news/news",
+                "text": "圈子",
+                "iconPath": "./assets/img/tabbar/chquan-nav.png",
+                "selectedIconPath": "./assets/img/tabbar/chquan-nav-S.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "我的",
+                "iconPath": "./assets/img/tabbar/wode-nav.png",
+                "selectedIconPath": "./assets/img/tabbar/wode-nav-S.png"
+            }
+        ]
     }
-  ],
-  "tabBar": {
-    "color": "#333",
-    "selectedColor": "#ff7c5e",
-    "backgroundColor": "#fff",
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "text": "首页",
-        "iconPath": "./assets/img/tabbar/shouye-nav.png",
-        "selectedIconPath": "./assets/img/tabbar/shouye-nav-S.png"
-      },
-      {
-        "pagePath": "pages/mall/mall",
-        "text": "商城",
-        "iconPath": "./assets/img/tabbar/shangcheng-nav.png",
-        "selectedIconPath": "./assets/img/tabbar/shangcheng-nav-S.png"
-      },
-      {
-        "pagePath": "pages/order/order",
-        "text": "订单",
-        "iconPath": "./assets/img/tabbar/dingdan-nav.png",
-        "selectedIconPath": "./assets/img/tabbar/dingdan-nav-S.png"
-      },
-      {
-        "pagePath": "pages/news/news",
-        "text": "圈子",
-        "iconPath": "./assets/img/tabbar/chquan-nav.png",
-        "selectedIconPath": "./assets/img/tabbar/chquan-nav-S.png"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "text": "我的",
-        "iconPath": "./assets/img/tabbar/wode-nav.png",
-        "selectedIconPath": "./assets/img/tabbar/wode-nav-S.png"
-      }
-    ]
-  }
 }

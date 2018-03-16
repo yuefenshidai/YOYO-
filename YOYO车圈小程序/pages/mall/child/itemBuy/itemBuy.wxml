@@ -2,7 +2,7 @@
 <!-- <text>pages/mall/child/itemBuye/itemBuye.wxml</text>
 <text>商城产品结算</text>   -->
 
-<view class='itemBuye_container'>
+<view class='itemBuye_container' wx:if="{{isLogin}}">
   <view class='now_point_container'>当前账户积分余额：{{ can_use_point }}积分</view>
   <view class='receiving_address'>
     <view class='top'>
@@ -97,3 +97,7 @@
 
   <view class='shade {{ show_flag == true ? "show" : "" }}'></view>
 </view>
+<block wx:if="{{!isLogin}}">
+	<import src="../common/notLogin/notLogin"/>
+	<template is="item"/>
+</block>

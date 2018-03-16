@@ -1,7 +1,7 @@
 <!--pages/mall/mall.wxml-->
 <!-- <text>1111</text> -->
 
-<view class='container'>
+<view class='container' wx:if="{{isLogin}}">
   <view class='img'>
     <image src='./img/top-banner.png'></image>
   </view>
@@ -48,3 +48,7 @@
     </view>
   </view>
 </view>
+<block wx:if="{{!isLogin}}">
+	<import src="../common/notLogin/notLogin"/>
+	<template is="item"/>
+</block>

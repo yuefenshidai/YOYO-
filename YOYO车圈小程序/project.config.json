@@ -33,49 +33,7 @@
 				{
 					"id": -1,
 					"name": "车价评估",
-					"pathName": "pages/home/child/packageA/evaluation/child/Vehiclebrand/Vehiclebrand",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "车价评估",
-					"pathName": "pages/home/child/packageA/evaluation/child/Vehiclebrand/Vehiclebrand",
-					"query": ""
-				},
-				{
-					"id": 2,
-					"name": "地址列表",
-					"pathName": "pages/mall/child/address/address",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "地址",
-					"pathName": "pages/mall/child/address_edit/address_edit",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "商城",
-					"pathName": "pages/mall/mall",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "商城订单",
-					"pathName": "pages/mall/child/itemBuy/itemBuy",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "订单",
-					"pathName": "pages/order/order",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "订单详情",
-					"pathName": "pages/order/child/order_detail/order_detail",
+					"pathName": "pages/user/user",
 					"query": ""
 				}
 			]

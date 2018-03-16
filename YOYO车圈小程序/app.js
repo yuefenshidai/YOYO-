@@ -5,7 +5,12 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+	
+	// 判定是否登陆
+	let yfsdmember = wx.getStorageSync('yfsdmember')
+	if (yfsdmember) {
+		this.globalData.islogin = true
+	}
     // 登录
     wx.login({
       success: res => {
@@ -37,7 +42,8 @@ App({
     userInfo: null,
 	url_root: "https://www.happyinstallment.com/yfsd/",
 	img_url: "https://www.happyinstallment.com/yfsd/commonAction/getimg?fileName=",
-	mallImg_url:"https://www.happyinstallment.com/yfsd/commonAction/getimgByDataid?dataid="
+	mallImg_url:"https://www.happyinstallment.com/yfsd/commonAction/getimgByDataid?dataid=",
+	islogin:false
   },
   data: {
 	 
@@ -63,6 +69,7 @@ App({
 			  fn: fn
 		  }
 		  this.EvtPassData.push(newEvtItem)
+		  console.log(this.EvtPassData)
 	  }else{
 		  console.error('listenEvt必须有2个参数,第一个为事件名称，第二个为回调函数')
 	  }

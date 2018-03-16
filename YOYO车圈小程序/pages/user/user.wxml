@@ -67,7 +67,7 @@
 	</view>
 	<view class='bottom_meun'>
 		<view class='bottom_meun_main'>
-			<navigator wx:for="{{listBar}}" wx:key="{{item.title}}" class="{{index==4?'bottom_meun_main_item_UP':''}}">
+			<navigator wx:for="{{listBar}}" wx:key="{{item.title}}" class="{{index==4?'bottom_meun_main_item_UP':''}}" url="{{item.link}}">
 				<view class='bottom_meun_main_item flex' >
 					<image src="{{item.icon}}"></image>
 					<text>{{item.title}}</text>

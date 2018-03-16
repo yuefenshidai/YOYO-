@@ -39,16 +39,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    checkLogin.check();
     let app_goldble_data = getApp().globalData;
     let this_ = this;
     this.mall_img_url = app_goldble_data.mallImg_url;
     this.url_root = app_goldble_data.url_root;
     this.setData({
       mall_img_url: app_goldble_data.mallImg_url
-    }, function () {
-      this_.getGoodsData();
     });
+	checkLogin.check(this,()=>{
+		this.getGoodsData();
+	});
   },
 
   /**

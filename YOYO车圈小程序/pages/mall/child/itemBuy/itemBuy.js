@@ -43,19 +43,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    check_login.check();
+    check_login.check(this,()=>{
+		this.getAddress();
+		this.getPoint();
+		this.initialOrderData(wx.getStorageSync('want_to_buy'));
+		this.goHearFroMmemberCoupons(options);
+	});
     let app_goldble_data = getApp().globalData;
     let this_ = this;
     this.data.mall_img_url = app_goldble_data.mallImg_url;
     this.data.url_root = app_goldble_data.url_root;
     this.setData({
       mall_img_url: app_goldble_data.mallImg_url
-    }, function () {
-      this_.getAddress();
-      this_.getPoint();
-      this_.initialOrderData(wx.getStorageSync('want_to_buy'));
-      this_.goHearFroMmemberCoupons(options);
-    });
+    })
+	// , function () {
+    //   this_.getAddress();
+    //   this_.getPoint();
+    //   this_.initialOrderData(wx.getStorageSync('want_to_buy'));
+    //   this_.goHearFroMmemberCoupons(options);
+    // });
   },
 
   /**
